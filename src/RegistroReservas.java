@@ -1,8 +1,5 @@
 import java.util.ArrayList;
 import java.util.List;
-import java.util.ArrayList;
-import java.util.List;
-
 
 // Clase RegistroReservas para mantener un registro de las reservas pendientes
 class RegistroReservas {
