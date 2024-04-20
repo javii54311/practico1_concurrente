@@ -1,10 +1,14 @@
 import java.util.Random;
 public class SistemaDeReserva implements Runnable{
-    private final int FILAS = 30;
+    private final int FILAS = 3;
     private final int COLUMNAS = 3;
+    private final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
+    private final int SLEEP_PENDIENTE = 10000;
+    private final int SLEEP_PAGO = 500;
     private Asiento[][] asientos;
     private RegistroReservas registroReservas;
     private ProcesoDeReserva procesoDeReserva;
+
     
     public SistemaDeReserva() {
         this.asientos = new Asiento[FILAS][COLUMNAS];
@@ -41,32 +45,24 @@ public class SistemaDeReserva implements Runnable{
         return false;
     }
 
-    public void reservarAsientoAleatorio() {
-        boolean asientoEncontrado = false;
+    public void reservarAsientosAleatorios() {
         // Intentar reservar un asiento aleatorio hasta que se encuentre uno libre
-        do {
-            Random random = new Random();
-            int filaAleatoria = random.nextInt(FILAS);
-            int columnaAleatoria = random.nextInt(COLUMNAS); 
-            Asiento asiento = getAsiento(filaAleatoria, columnaAleatoria); 
+        
 
-            Reserva reserva = new Reserva();
-            reserva.setEstado(EstadoReserva.PENDIENTE_DE_PAGO);
-            reserva.setFila(filaAleatoria);
-            reserva.setColumna(columnaAleatoria);
-            reserva.setAsiento(asiento);
+            procesoDeReserva.reservarAsiento(SLEEP_PENDIENTE); //Sincronizado: solo un hilo puede acceder a la vez
 
-            asientoEncontrado = procesoDeReserva.reservarAsiento(asiento, reserva, filaAleatoria, columnaAleatoria); //Sincronizado: solo un hilo puede acceder a la vez
-
-        } while (!asientoEncontrado && hayAsientosLibres());
+        
     }
     
-    public void pagarAsientoAleatorio(){
+    public void pagarAsientosAleatorios(){
+
+        int cont = 0;
+        do{
         Random random = new Random();
         boolean sePaga = random.nextDouble() < 0.9;
         // Obtener una reserva aleatoria de la lista de reservas pendientes
         if (!registroReservas.getReservasPendientes().isEmpty()) {
-
+            cont ++;
             int indiceAleatorio = random.nextInt(registroReservas.getReservasPendientes().size());
             Reserva reserva = registroReservas.getReservasPendientes().get(indiceAleatorio);
 
@@ -86,17 +82,21 @@ public class SistemaDeReserva implements Runnable{
                 registroReservas.agregarReservaCancelada(reserva);
             }
         }
-        else{
-            System.out.println("No hay reservas pendientes");
-        }
+    }while(cont < CANTIDAD_ASIENTOS);
     }
     
     
     @Override
     public void run() {
-            reservarAsientoAleatorio();
-
-        
+        if(Thread.currentThread().getName().contains("reserva")){
+            reservarAsientosAleatorios();
+        }
+        else if(Thread.currentThread().getName().contains("pago")){
+            //pagarAsientosAleatorios();
+        }
+        else{
+            System.out.println("Hilo no reconocido");
+        }
         System.out.println("Reservas realizadas por hilo de " + Thread.currentThread().getName());
     }
 

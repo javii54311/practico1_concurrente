@@ -11,11 +11,19 @@ class Reserva {
 
     private boolean check;
 
+
+    public Reserva(EstadoReserva estado, int fila, int columna, Asiento asiento) {
+        this.estado = estado;
+        this.fila = fila;
+        this.columna = columna;
+        this.asiento = asiento;
+        this.check = false;
+
+    }
     public Reserva() {
         this.estado = EstadoReserva.CREADA;
         this.check = false;
     }
-
     public EstadoReserva getEstado() {
         return estado;
     }

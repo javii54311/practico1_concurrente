@@ -11,16 +11,44 @@ public class ProcesoDeReserva {
         this.FILAS = FILAS;
         this.COLUMNAS = COLUMNAS;
     }
-    public boolean reservarAsiento(Asiento asiento, Reserva reserva, int filaAleatoria, int columnaAleatoria) {
-     synchronized (this) {
+    public Asiento getAsiento(int fila, int columna) { // Método sincronizado 
+        synchronized (asientos[fila][columna]) {
+            return asientos[fila][columna];
+        }    
+    }
+    public boolean hayAsientosLibres() { //sincronizado indirectamente
+        for (int i = 0; i < FILAS; i++) {
+            for (int j = 0; j < COLUMNAS; j++) {
+                if (getAsiento(i, j).getEstado() == EstadoAsiento.LIBRE) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public void reservarAsiento(int sleepReservaPendiente) {
+     do {
+        Random random = new Random();
+        int filaAleatoria = random.nextInt(FILAS);
+        int columnaAleatoria = random.nextInt(COLUMNAS); 
+        Asiento asiento = getAsiento(filaAleatoria, columnaAleatoria); //syncronized: solo un hilo puede acceder a la vez
+
+        Reserva reserva = new Reserva(EstadoReserva.PENDIENTE_DE_PAGO,filaAleatoria,columnaAleatoria,asiento);
+        synchronized (this) {
         if (asiento.getEstado() == EstadoAsiento.LIBRE) {
             registroReservas.agregarReservaPendiente(reserva);
             asiento.setEstado(EstadoAsiento.OCUPADO);
             System.out.printf("Asiento reservado por hilo de %s. Fila: %d, Columna: %d\n", Thread.currentThread().getName(),filaAleatoria, columnaAleatoria);
-            return true;
+            try {
+                Thread.sleep(sleepReservaPendiente);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-        return false;
-     }
+        }
+        
+        } while (hayAsientosLibres());
         
     }
+    
 }
