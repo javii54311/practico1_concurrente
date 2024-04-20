@@ -1,18 +1,19 @@
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.List;
 
 //Proceso de Reserva
 public class ProcesoReserva implements Runnable {
     private Asiento[][] asientos;
-    private RegistroReservas registroReservas;
+    private List<Reserva> reservasPendientes;
     private static final int LEAST = 10;
 	private static final int BOUND = 20; 
     private int asientoslibres;
 
-	public ProcesoReserva (Asiento[][] asientos, RegistroReservas registroReservas) 
+	public ProcesoReserva (Asiento[][] asientos, List<Reserva> reservasPendientes) 
 	{ 
         this.asientos = asientos;
-        this.registroReservas = registroReservas;
+        this.reservasPendientes = reservasPendientes;
         asientoslibres = Sistema.FILAS * Sistema.COLUMNAS;
 	}
 	public void run() 
@@ -25,7 +26,7 @@ public class ProcesoReserva implements Runnable {
 
         while(asientoslibres>0){
 
-        synchronized(registroReservas){
+        synchronized(reservasPendientes){
             Random random = new Random();
             Reserva reserva = new Reserva();
     
@@ -43,7 +44,7 @@ public class ProcesoReserva implements Runnable {
                 reserva.setFila(filaAleatoria);
                 reserva.setColumna(columnaAleatoria);
                 reserva.setAsiento(asiento);
-                registroReservas.agregarReservaPendiente(reserva);
+                reservasPendientes.add(reserva);
                 asientoEncontrado = true;
                 asientoslibres--;
                 System.out.printf(Thread.currentThread().getName() + ": Asiento reservado. Fila: %d, Columna: %d\n", filaAleatoria, columnaAleatoria);
@@ -60,8 +61,8 @@ public class ProcesoReserva implements Runnable {
 
         try
         {
-            registroReservas.notifyAll(); 
-            registroReservas.wait(1); 
+            reservasPendientes.notifyAll(); 
+            reservasPendientes.wait(1); 
             //el hilo actual espera un milisegundo antes de volver a intentar adquirir el bloqueo, lo que evita que un hilo monopolice el bloqueo por mucho tiempo.
         }
         catch(Exception e){

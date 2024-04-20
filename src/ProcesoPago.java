@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+
 //Proceso de Pago 
 public class ProcesoPago implements Runnable {
     private RegistroReservas registroReservas;

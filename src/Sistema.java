@@ -1,13 +1,18 @@
+import java.util.ArrayList;
+import java.util.List;
+
 // Clase Sistema
 public class Sistema {
     protected static final int FILAS = 3;
     protected static final int COLUMNAS = 3;
     protected static Asiento[][] asientos;
-    protected static RegistroReservas registroReservas;
+    protected static List<Reserva> reservasPendientes;
+    protected static List<Reserva> reservasConfirmadas;
+    protected static List<Reserva> reservasCanceladas;
+    protected static List<Reserva> reservasVerificadas;
 
     public Sistema() {
         asientos = new Asiento[Sistema.FILAS][Sistema.COLUMNAS];
-        registroReservas = new RegistroReservas();
 
         // Inicializar los asientos del avión
         for (int i = 0; i < Sistema.FILAS; i++) {
@@ -16,12 +21,17 @@ public class Sistema {
             }
         }
 
+        this.reservasPendientes = new ArrayList<>();
+        this.reservasConfirmadas = new ArrayList<>();
+        this.reservasCanceladas = new ArrayList<>();
+        this.reservasVerificadas = new ArrayList<>();
+
         // Creacion de hilos
-        ProcesoReserva pr1 = new ProcesoReserva(asientos, registroReservas);
-        ProcesoReserva pr2 = new ProcesoReserva(asientos, registroReservas);
-        ProcesoReserva pr3 = new ProcesoReserva(asientos, registroReservas);       
-        ProcesoPago pp1 = new ProcesoPago(registroReservas);
-        ProcesoPago pp2 = new ProcesoPago(registroReservas);
+        ProcesoReserva pr1 = new ProcesoReserva(asientos, reservasPendientes);
+        ProcesoReserva pr2 = new ProcesoReserva(asientos, reservasPendientes);
+        ProcesoReserva pr3 = new ProcesoReserva(asientos, reservasPendientes);       
+        //ProcesoPago pp1 = new ProcesoPago(registroReservas);
+        //ProcesoPago pp2 = new ProcesoPago(registroReservas);
         // ProcesoCanceVali pcv1 = new ProcesoCanceVali(registroReservas);
         // ProcesoCanceVali pcv2 = new ProcesoCanceVali(registroReservas);
         // ProcesoCanceVali pcv3 = new ProcesoCanceVali(registroReservas);
@@ -30,8 +40,8 @@ public class Sistema {
         Thread t1 = new Thread(pr1, "Procesador de Reserva 1");
         Thread t2 = new Thread(pr2, "Procesador de Reserva 2");
         Thread t3 = new Thread(pr3, "Procesador de Reserva 3");
-        Thread t4 = new Thread(pp1, "Procesador de Pago 1");
-        Thread t5 = new Thread(pp2, "Procesador de Pago 1");
+        //Thread t4 = new Thread(pp1, "Procesador de Pago 1");
+        //Thread t5 = new Thread(pp2, "Procesador de Pago 1");
         // Thread t6 = new Thread(pcv1, "Procesador de Cancelacion/Validacion 1");
         // Thread t7 = new Thread(pcv2, "Procesador de Cancelacion/Validacion 2");
         // Thread t8 = new Thread(pcv3, "Procesador de Cancelacion/Validacion 3");
@@ -40,8 +50,8 @@ public class Sistema {
         t1.start();
         t2.start();
         t3.start();
-        t4.start();
-        t5.start();
+        //t4.start();
+        //t5.start();
         // t6.start();
         // t7.start();
         // t8.start();
