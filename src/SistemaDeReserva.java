@@ -1,4 +1,3 @@
-import java.util.Random;
 import java.util.ArrayList;
 import java.util.List;
 public class SistemaDeReserva {
@@ -17,6 +16,7 @@ public class SistemaDeReserva {
     protected static boolean sigueProcesoDePago;
 
     private ProcesoDeCancelacionValidacion procesoDeCancelacionValidacion;
+    protected static boolean sigueProcesoDeCancelacion;
 
     private ProcesoDeVerificacion procesoDeVerificacion;
 
@@ -88,6 +88,9 @@ public class SistemaDeReserva {
     }
     public ProcesoDeCancelacionValidacion getProcesoDeCancelacionValidacion() {
         return procesoDeCancelacionValidacion;
+    }
+    public ProcesoDeVerificacion getProcesoDeVerificacion() {
+        return procesoDeVerificacion;
     }
 }
 

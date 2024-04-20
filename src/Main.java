@@ -16,7 +16,9 @@ public class Main {
         Thread hilo7 = new Thread(sistemaDeReserva.getProcesoDeCancelacionValidacion(), "Hilo de cancelacion 2 ");
         Thread hilo8 = new Thread(sistemaDeReserva.getProcesoDeCancelacionValidacion(), "Hilo de cancelacion 3 ");
         
-        
+        Thread hilo9 = new Thread(sistemaDeReserva.getProcesoDeVerificacion(), "Hilo de verificacion 1");
+        Thread hilo10 = new Thread(sistemaDeReserva.getProcesoDeVerificacion(), "Hilo de verificacion 2");
+
         // Iniciar los hilos
         hilo1.start();
         hilo2.start();
@@ -26,7 +28,8 @@ public class Main {
         hilo6.start();
         hilo7.start();
         hilo8.start();
-        
+        hilo9.start();
+        hilo10.start();
         
     }
 }

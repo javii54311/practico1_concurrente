@@ -44,6 +44,13 @@ public class ProcesoDePago implements Runnable{
                     listaReservasPendientes.remove(reserva);
                     listaReservasConfirmadas.add(reserva);
                     reserva.setEstado(EstadoReserva.CONFIRMADA);
+                    try 
+                    {
+                        Thread.sleep(sleep_pago); 
+                    }
+                    catch(Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             } else {
                 synchronized (listaReservasCanceladas) {
@@ -54,15 +61,16 @@ public class ProcesoDePago implements Runnable{
                 listaReservasPendientes.remove(reserva);
                 listaReservasCanceladas.add(reserva);
                 reserva.setEstado(EstadoReserva.CANCELADA);
+                try 
+                {
+                    Thread.sleep(sleep_pago); 
+                }
+                catch(Exception e) {
+                    e.printStackTrace();
+                }
                 }
             }
-            try 
-            {
-                Thread.sleep(sleep_pago); 
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
+
 
         } else {
         //    System.out.println("No hay reservas pendientes");

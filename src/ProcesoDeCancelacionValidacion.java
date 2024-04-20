@@ -13,6 +13,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable{
         this.listaReservasCanceladas = listaReservasCanceladas;
         this.sleep_verificacion = sleep_verificacion;
         this.reservasChequeadas = 0;
+        SistemaDeReserva.sigueProcesoDeCancelacion = true;
     }
 
     public boolean debeSeguirProceso() {
@@ -22,6 +23,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable{
 
     public void run() {
         ProcesarReservaConfirmada();
+        SistemaDeReserva.sigueProcesoDeCancelacion = false;
     }
 
     public void ProcesarReservaConfirmada() {
@@ -63,7 +65,6 @@ public class ProcesoDeCancelacionValidacion implements Runnable{
                     e.printStackTrace();
                 }
             }
-            System.out.println("resPros: "+ reservasChequeadas + " resCon: "+listaReservasConfirmadas.size());
         }
     }
 
