@@ -8,28 +8,45 @@ public class SistemaDeReserva {
     protected static final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
     private final int SLEEP_PENDIENTE = 5;
     private final int SLEEP_PAGO = 1500;
+    private final int SLEEP_VERIFICACION = 1000;
+    private final int SLEEP_CANCELACION = 1200;
     private Asiento[][] asientos;
     private ProcesoDeReserva procesoDeReserva;
+
     private ProcesoDePago procesoDePago;
+    protected static boolean sigueProcesoDePago;
+
+    private ProcesoDeCancelacionValidacion procesoDeCancelacionValidacion;
+
+    private ProcesoDeVerificacion procesoDeVerificacion;
+
     private List<Reserva> reservasPendientes;
     private List<Reserva> reservasConfirmadas;
     private List<Reserva> reservasCanceladas;
     private List<Reserva> reservasVerificadas;
 
     public SistemaDeReserva() {
+
         this.asientos = new Asiento[FILAS][COLUMNAS];
         this.reservasPendientes = new ArrayList<>();
         this.reservasConfirmadas = new ArrayList<>();
         this.reservasCanceladas = new ArrayList<>();
         this.reservasVerificadas = new ArrayList<>();
-        this.procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes, SLEEP_PENDIENTE);
-        this.procesoDePago = new ProcesoDePago(reservasPendientes, reservasConfirmadas, reservasCanceladas, SLEEP_PAGO);
         // Inicializar los asientos del avión
         for (int i = 0; i < FILAS; i++) {
             for (int j = 0; j < COLUMNAS; j++) {
                 asientos[i][j] = new Asiento();
             }
         }
+        
+        this.procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes, SLEEP_PENDIENTE);
+        
+        sigueProcesoDePago = true;
+        this.procesoDePago = new ProcesoDePago(reservasPendientes, reservasConfirmadas, reservasCanceladas, SLEEP_PAGO);
+        
+        this.procesoDeCancelacionValidacion = new ProcesoDeCancelacionValidacion(reservasConfirmadas, reservasCanceladas, SLEEP_CANCELACION);
+        
+        this.procesoDeVerificacion = new ProcesoDeVerificacion(reservasConfirmadas, reservasVerificadas, SLEEP_VERIFICACION);
     }
     
     public void addReservaPendiente(Reserva reserva) {
@@ -68,6 +85,9 @@ public class SistemaDeReserva {
     }
     public ProcesoDePago getProcesoDePago() {
         return procesoDePago;
+    }
+    public ProcesoDeCancelacionValidacion getProcesoDeCancelacionValidacion() {
+        return procesoDeCancelacionValidacion;
     }
 }
 

@@ -24,7 +24,7 @@ public class ProcesoDeReserva extends Proceso implements Runnable{
                 synchronized(listaReservasPendientes){
                     listaReservasPendientes.add(reserva);
                 }
-                System.out.printf("Asiento reservado por hilo de %s. Fila: %d, Columna: %d\n", Thread.currentThread().getName(),filaAleatoria, columnaAleatoria);
+                System.out.printf("%s Reserva hecha en: Fila %d, Columna %d\n", Thread.currentThread().getName(),filaAleatoria, columnaAleatoria);
                 try {
                     Thread.sleep(sleepReservaPendiente);
                 } catch (InterruptedException e) {
