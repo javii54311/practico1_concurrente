@@ -5,12 +5,12 @@ public class SistemaDeReserva {
 
     protected static final int FILAS = 3;
     protected static final int COLUMNAS = 3;
-    private final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
-    private final int SLEEP_PENDIENTE = 1000;
-    private final int SLEEP_PAGO = 500;
+    protected static final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
+    private final int SLEEP_PENDIENTE = 5;
+    private final int SLEEP_PAGO = 1500;
     private Asiento[][] asientos;
-    private RegistroReservas registroReservas;
     private ProcesoDeReserva procesoDeReserva;
+    private ProcesoDePago procesoDePago;
     private List<Reserva> reservasPendientes;
     private List<Reserva> reservasConfirmadas;
     private List<Reserva> reservasCanceladas;
@@ -18,13 +18,12 @@ public class SistemaDeReserva {
 
     public SistemaDeReserva() {
         this.asientos = new Asiento[FILAS][COLUMNAS];
-        this.registroReservas = new RegistroReservas();
         this.reservasPendientes = new ArrayList<>();
         this.reservasConfirmadas = new ArrayList<>();
         this.reservasCanceladas = new ArrayList<>();
         this.reservasVerificadas = new ArrayList<>();
         this.procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes, SLEEP_PENDIENTE);
-
+        this.procesoDePago = new ProcesoDePago(reservasPendientes, reservasConfirmadas, reservasCanceladas, SLEEP_PAGO);
         // Inicializar los asientos del avión
         for (int i = 0; i < FILAS; i++) {
             for (int j = 0; j < COLUMNAS; j++) {
@@ -63,39 +62,12 @@ public class SistemaDeReserva {
         return false;
     }
     
-    public void pagarAsientosAleatorios(){
-
-        int cont = 0;
-        do{
-        Random random = new Random();
-        boolean sePaga = random.nextDouble() < 0.9;
-        // Obtener una reserva aleatoria de la lista de reservas pendientes
-        if (!registroReservas.getReservasPendientes().isEmpty()) {
-            cont ++;
-            int indiceAleatorio = random.nextInt(registroReservas.getReservasPendientes().size());
-            Reserva reserva = registroReservas.getReservasPendientes().get(indiceAleatorio);
-
-            // Intentar pagar la reserva
-            if (sePaga) { 
-                // Eliminar la reserva de la lista de pendientes
-                registroReservas.eliminarReservaPendiente(reserva);
-                // Agregar la reserva a la lista de confirmadas
-                registroReservas.agregarReservaConfirmada(reserva);
-            }
-            else {
-                // Colocar el asiento en estado DESCARTADO
-                reserva.getAsiento().setEstado(EstadoAsiento.DESCARTADO);
-                // Eliminar la reserva de la lista de pendientes
-                registroReservas.eliminarReservaPendiente(reserva);
-                // Agregar la reserva a la lista de canceladas
-                registroReservas.agregarReservaCancelada(reserva);
-            }
-        }
-    }while(cont < CANTIDAD_ASIENTOS);
-    }
 
     public ProcesoDeReserva getProcesoDeReserva() {
         return procesoDeReserva;
+    }
+    public ProcesoDePago getProcesoDePago() {
+        return procesoDePago;
     }
 }
 
