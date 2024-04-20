@@ -2,13 +2,13 @@ import java.util.ArrayList;
 import java.util.List;
 public class SistemaDeReserva {
 
-    protected static final int FILAS = 3;
-    protected static final int COLUMNAS = 3;
+    protected static final int FILAS = 31;
+    protected static final int COLUMNAS = 6;
     protected static final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
-    private final int SLEEP_PENDIENTE = 5;
-    private final int SLEEP_PAGO = 1500;
-    private final int SLEEP_VERIFICACION = 1000;
-    private final int SLEEP_CANCELACION = 1200;
+    private final int SLEEP_PENDIENTE = 10;
+    private final int SLEEP_PAGO = 8;
+    private final int SLEEP_CANCELACION = 5;
+    private final int SLEEP_VERIFICACION = 2;
     private Asiento[][] asientos;
     private ProcesoDeReserva procesoDeReserva;
 
@@ -19,6 +19,9 @@ public class SistemaDeReserva {
     protected static boolean sigueProcesoDeCancelacion;
 
     private ProcesoDeVerificacion procesoDeVerificacion;
+    protected static boolean sigueProcesoDeVerificacion;
+
+    private Log logDeReservas;
 
     private List<Reserva> reservasPendientes;
     private List<Reserva> reservasConfirmadas;
@@ -47,11 +50,13 @@ public class SistemaDeReserva {
         this.procesoDeCancelacionValidacion = new ProcesoDeCancelacionValidacion(reservasConfirmadas, reservasCanceladas, SLEEP_CANCELACION);
         
         this.procesoDeVerificacion = new ProcesoDeVerificacion(reservasConfirmadas, reservasVerificadas, SLEEP_VERIFICACION);
+        
+        this.logDeReservas = new Log(reservasCanceladas, reservasVerificadas);
     }
     
     public void addReservaPendiente(Reserva reserva) {
         synchronized (reservasPendientes) {
-            System.out.printf("Reserva pendiente hecha por el hilo %s\n", Thread.currentThread().getName());
+            //System.out.printf("Reserva pendiente hecha por el hilo %s\n", Thread.currentThread().getName());
             this.reservasPendientes.add(reserva);
         }
     }
@@ -91,6 +96,9 @@ public class SistemaDeReserva {
     }
     public ProcesoDeVerificacion getProcesoDeVerificacion() {
         return procesoDeVerificacion;
+    }
+    public Log getLogDeReservas() {
+        return logDeReservas;
     }
 }
 

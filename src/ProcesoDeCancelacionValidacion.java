@@ -40,7 +40,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable{
 
                     } else {
                         if (random.nextDouble() < 0.1) {
-                            System.out.println(Thread.currentThread().getName() +" Chequeo hecho en: Fila " + reserva.getFila() + ", Columna " + reserva.getColumna() + " cancelada");
+                            //System.out.println(Thread.currentThread().getName() +" Chequeo hecho en: Fila " + reserva.getFila() + ", Columna " + reserva.getColumna() + " cancelada");
                             reserva.getAsiento().setEstado(EstadoAsiento.DESCARTADO);
                             listaReservasConfirmadas.remove(reserva);
                             synchronized (listaReservasCanceladas) {
@@ -48,7 +48,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable{
                             }
                         } else {
                             reservasChequeadas ++;
-                            System.out.println(Thread.currentThread().getName() +" Chequeo hecho en: Fila " + reserva.getFila() + ", Columna " + reserva.getColumna() + " completada");
+                            //System.out.println(Thread.currentThread().getName() +" Chequeo hecho en: Fila " + reserva.getFila() + ", Columna " + reserva.getColumna() + " completada");
                             reserva.setCheck(true);
                         }
 

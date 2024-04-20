@@ -11,10 +11,12 @@ public class ProcesoDeVerificacion implements Runnable {
         this.listaReservasConfirmadas = listaReservasConfirmadas;
         this.listaReservasVerificadas = listaReservasVerificadas;
         this.sleep_verification = sleep_verification;
+        SistemaDeReserva.sigueProcesoDeVerificacion = true;
     }
 
     public void run() {
         VerificarReservas();
+        SistemaDeReserva.sigueProcesoDeVerificacion = false;
     }
 
     private boolean debeSeguirProceso() {
@@ -32,8 +34,8 @@ public class ProcesoDeVerificacion implements Runnable {
 
                     if (reserva.getCheck()) {
 
-                        System.out.println("La reserva " + reserva.getFila() + " " + reserva.getColumna() + " estaba checkeada");
-                        System.out.println("Se la marca como verificada.");
+                        //System.out.println("La reserva " + reserva.getFila() + " " + reserva.getColumna() + " estaba checkeada");
+                        //System.out.println("Se la marca como verificada.");
                         listaReservasConfirmadas.remove(reserva);
                         reserva.setEstado(EstadoReserva.VERIFICADA);
                         synchronized (listaReservasVerificadas) {

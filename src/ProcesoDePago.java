@@ -40,7 +40,7 @@ public class ProcesoDePago implements Runnable{
             if (random.nextDouble() < 0.9) { // 90% de probabilidad de éxito
                 synchronized (listaReservasConfirmadas) {
                     // Pagar la reserva
-                    System.out.println(Thread.currentThread().getName() + " Pago    hecho en: Fila " + reserva.getFila() + ", Columna " + reserva.getColumna());
+                    //System.out.println(Thread.currentThread().getName() + " Pago    hecho en: Fila " + reserva.getFila() + ", Columna " + reserva.getColumna());
                     listaReservasPendientes.remove(reserva);
                     listaReservasConfirmadas.add(reserva);
                     reserva.setEstado(EstadoReserva.CONFIRMADA);
@@ -55,7 +55,7 @@ public class ProcesoDePago implements Runnable{
             } else {
                 synchronized (listaReservasCanceladas) {
                 // 10% de probabilidad de fracaso
-                System.out.println(Thread.currentThread().getName() + " Pago no hecho en: Fila " + reserva.getFila() + ", Columna " + reserva.getColumna());
+                //System.out.println(Thread.currentThread().getName() + " Pago no hecho en: Fila " + reserva.getFila() + ", Columna " + reserva.getColumna());
                 // Colocar el asiento en estado DESCARTADO
                 reserva.getAsiento().setEstado(EstadoAsiento.DESCARTADO);
                 listaReservasPendientes.remove(reserva);
