@@ -5,6 +5,7 @@ enum EstadoAsiento {
 
 // Clase Asiento
 public class Asiento {
+    
     private EstadoAsiento estado;
 
     public Asiento() {
@@ -16,6 +17,8 @@ public class Asiento {
     }
 
     public void setEstado(EstadoAsiento estado) {
+        synchronized (this) {
         this.estado = estado;
+        }
     }
 }
