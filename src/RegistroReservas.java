@@ -17,50 +17,69 @@ class RegistroReservas {
         this.reservasVerificadas = new ArrayList<>();
     }
 
-    public void agregarReservaPendiente(Reserva reserva) {
-
-        this.reservasPendientes.add(reserva);
-    }
-    public void agregarReservaConfirmada(Reserva reserva) {
-
-        this.reservasConfirmadas.add(reserva);
-    }
-    public void agregarReservaCancelada(Reserva reserva) {
-
-        this.reservasCanceladas.add(reserva);
-    }
-    public void agregarReservaVerificada(Reserva reserva) {
-
-        this.reservasVerificadas.add(reserva);
+    public void agregarReservaPendiente(Reserva reserva) { //syncronized
+        synchronized (reservasPendientes) {
+            System.out.printf("Reserva pendiente hecha por el hilo %s\n", Thread.currentThread().getName());
+            this.reservasPendientes.add(reserva);
+        }
     }
 
-    public List<Reserva> getReservasPendientes() {
-
-        return this.reservasPendientes;
-    }
-    public List<Reserva> getReservasConfirmadas() {
-
-        return this.reservasConfirmadas;
+    public void agregarReservaConfirmada(Reserva reserva) { //syncronized
+        synchronized (reservasConfirmadas) {
+            System.out.printf("Reserva confirmada hecha por el hilo %s\n", Thread.currentThread().getName());
+            this.reservasConfirmadas.add(reserva);
+        }
     }
 
-    public List<Reserva> getReservasCanceladas() {
-
-        return this.reservasCanceladas;
+    public void agregarReservaCancelada(Reserva reserva) { //syncronized
+        synchronized (reservasCanceladas) {
+            System.out.printf("Reserva cancelada hecha por el hilo %s\n", Thread.currentThread().getName());
+            this.reservasCanceladas.add(reserva);
+        }
     }
 
-    public List<Reserva> getReservasVerificadas() {
+    public void agregarReservaVerificada(Reserva reserva) { //syncronized
+        synchronized (reservasVerificadas) {
+            System.out.printf("Reserva verificada hecha por el hilo %s\n", Thread.currentThread().getName());
+            this.reservasVerificadas.add(reserva);
+        }
+    }
 
-        return this.reservasVerificadas;
+
+    //Getters (No sé si deberian sincronizarse)
+    public List<Reserva> getReservasPendientes() { //syncronized
+        synchronized (reservasPendientes) {
+            return this.reservasPendientes;
+        }
+    }
+
+    public List<Reserva> getReservasConfirmadas() { //syncronized
+        synchronized (reservasConfirmadas) {
+            return this.reservasConfirmadas;
+        }
+    }
+
+    public List<Reserva> getReservasCanceladas() { //syncronized
+        synchronized (reservasCanceladas) {
+            return this.reservasCanceladas;
+        }
+    }
+
+    public List<Reserva> getReservasVerificadas() { //syncronized
+        synchronized (reservasVerificadas) {
+            return this.reservasVerificadas;
+        }
     }
 
     public void eliminarReservaPendiente(Reserva reserva) {
-        if(this.reservasPendientes != null && this.reservasPendientes.contains(reserva)){
-            this.reservasPendientes.remove(reserva);
+        synchronized (reservasPendientes) {
+            if(this.reservasPendientes != null && this.reservasPendientes.contains(reserva)){
+                this.reservasPendientes.remove(reserva);
+            }
+            else{
+                System.out.println("La reserva no existe");
+            }
         }
-        else{
-            System.out.println("La reserva no existe");
-        }
-
     }
 
     public void eliminarReservaConfirmada(Reserva reserva) {

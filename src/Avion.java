@@ -133,7 +133,6 @@ public class Avion {
 
     }
 
-
     public RegistroReservas getRegistroReservas() {
 
         return registroReservas;

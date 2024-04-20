@@ -17,6 +17,8 @@ public class Asiento {
     }
 
     public void setEstado(EstadoAsiento estado) {
+        synchronized (this) {
         this.estado = estado;
+        }
     }
 }
