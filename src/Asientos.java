@@ -1,14 +1,14 @@
-// Enumeración para los estados de los asientos
 enum EstadoAsiento {
-    LIBRE, OCUPADO, DESCARTADO
+    LIBRE,
+    OCUPADO,
+    DESCARTADO
 }
 
-// Clase Asiento
-public class Asiento {
+public class Asientos {
     
     private EstadoAsiento estado;
 
-    public Asiento() {
+    public Asientos() {
         this.estado = EstadoAsiento.LIBRE;
     }
 

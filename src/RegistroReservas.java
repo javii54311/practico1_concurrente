@@ -3,6 +3,7 @@ import java.util.List;
 
 // Clase RegistroReservas para mantener un registro de las reservas pendientes
 class RegistroReservas {
+    
     private List<Reserva> reservasPendientes;
     private List<Reserva> reservasConfirmadas;
     private List<Reserva> reservasCanceladas;
@@ -98,6 +99,7 @@ class RegistroReservas {
         mostrarReservasCanceladas();
         mostrarReservasVerificadas();
     }
+    
     void mostrarReservasPendientes() {
         if(reservasPendientes.isEmpty()){
             System.out.println("No hay reservas pendientes\n");
