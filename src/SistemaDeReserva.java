@@ -1,19 +1,29 @@
 import java.util.Random;
-public class SistemaDeReserva implements Runnable{
-    private final int FILAS = 3;
-    private final int COLUMNAS = 3;
+import java.util.ArrayList;
+import java.util.List;
+public class SistemaDeReserva {
+
+    protected static final int FILAS = 3;
+    protected static final int COLUMNAS = 3;
     private final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
-    private final int SLEEP_PENDIENTE = 10000;
+    private final int SLEEP_PENDIENTE = 1000;
     private final int SLEEP_PAGO = 500;
     private Asiento[][] asientos;
     private RegistroReservas registroReservas;
     private ProcesoDeReserva procesoDeReserva;
+    private List<Reserva> reservasPendientes;
+    private List<Reserva> reservasConfirmadas;
+    private List<Reserva> reservasCanceladas;
+    private List<Reserva> reservasVerificadas;
 
-    
     public SistemaDeReserva() {
         this.asientos = new Asiento[FILAS][COLUMNAS];
         this.registroReservas = new RegistroReservas();
-        this.procesoDeReserva = new ProcesoDeReserva(asientos, registroReservas, FILAS, COLUMNAS);
+        this.reservasPendientes = new ArrayList<>();
+        this.reservasConfirmadas = new ArrayList<>();
+        this.reservasCanceladas = new ArrayList<>();
+        this.reservasVerificadas = new ArrayList<>();
+        this.procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes, SLEEP_PENDIENTE);
 
         // Inicializar los asientos del avión
         for (int i = 0; i < FILAS; i++) {
@@ -22,6 +32,14 @@ public class SistemaDeReserva implements Runnable{
             }
         }
     }
+    
+    public void addReservaPendiente(Reserva reserva) {
+        synchronized (reservasPendientes) {
+            System.out.printf("Reserva pendiente hecha por el hilo %s\n", Thread.currentThread().getName());
+            this.reservasPendientes.add(reserva);
+        }
+    }
+
     public Asiento[][] getAsientos() { // Método sincronizado
         synchronized (asientos) {
             return asientos;
@@ -43,15 +61,6 @@ public class SistemaDeReserva implements Runnable{
             }
         }
         return false;
-    }
-
-    public void reservarAsientosAleatorios() {
-        // Intentar reservar un asiento aleatorio hasta que se encuentre uno libre
-        
-
-            procesoDeReserva.reservarAsiento(SLEEP_PENDIENTE); //Sincronizado: solo un hilo puede acceder a la vez
-
-        
     }
     
     public void pagarAsientosAleatorios(){
@@ -84,22 +93,10 @@ public class SistemaDeReserva implements Runnable{
         }
     }while(cont < CANTIDAD_ASIENTOS);
     }
-    
-    
-    @Override
-    public void run() {
-        if(Thread.currentThread().getName().contains("reserva")){
-            reservarAsientosAleatorios();
-        }
-        else if(Thread.currentThread().getName().contains("pago")){
-            //pagarAsientosAleatorios();
-        }
-        else{
-            System.out.println("Hilo no reconocido");
-        }
-        System.out.println("Reservas realizadas por hilo de " + Thread.currentThread().getName());
-    }
 
+    public ProcesoDeReserva getProcesoDeReserva() {
+        return procesoDeReserva;
+    }
 }
 
 /*

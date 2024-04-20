@@ -17,7 +17,7 @@ public class Asiento {
     }
 
     public void setEstado(EstadoAsiento estado) {
-        synchronized (this) {
+        synchronized (this) { //temporal
         this.estado = estado;
         }
     }
