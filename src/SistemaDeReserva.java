@@ -5,10 +5,10 @@ public class SistemaDeReserva {
     protected static final int FILAS = 31;
     protected static final int COLUMNAS = 6;
     protected static final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
-    private final int SLEEP_PENDIENTE = 10;
-    private final int SLEEP_PAGO = 8;
-    private final int SLEEP_CANCELACION = 5;
-    private final int SLEEP_VERIFICACION = 2;
+    private final int SLEEP_PENDIENTE = 3;
+    private final int SLEEP_PAGO = 5;
+    private final int SLEEP_CANCELACION = 9;
+    private final int SLEEP_VERIFICACION = 4;
     private Asiento[][] asientos;
     private ProcesoDeReserva procesoDeReserva;
 
@@ -60,30 +60,6 @@ public class SistemaDeReserva {
             this.reservasPendientes.add(reserva);
         }
     }
-
-    public Asiento[][] getAsientos() { // Método sincronizado
-        synchronized (asientos) {
-            return asientos;
-        }
-    }
-    
-    public Asiento getAsiento(int fila, int columna) { // Método sincronizado 
-        synchronized (asientos[fila][columna]) {
-            return asientos[fila][columna];
-        }    
-    }
-
-    public boolean hayAsientosLibres() { //sincronizado indirectamente
-        for (int i = 0; i < FILAS; i++) {
-            for (int j = 0; j < COLUMNAS; j++) {
-                if (getAsiento(i, j).getEstado() == EstadoAsiento.LIBRE) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
-    
 
     public ProcesoDeReserva getProcesoDeReserva() {
         return procesoDeReserva;

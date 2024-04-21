@@ -2,30 +2,27 @@ import java.util.List;
 import java.util.Random;
 
 public class ProcesoDeVerificacion implements Runnable {
-    int sleep_verification;
+    int sleep_verificacion;
     List<Reserva> listaReservasConfirmadas;
     List<Reserva> listaReservasVerificadas;
 
     public ProcesoDeVerificacion(List<Reserva> listaReservasConfirmadas, List<Reserva> listaReservasVerificadas,
-            int sleep_verification) {
+            int sleep_verificacion) {
         this.listaReservasConfirmadas = listaReservasConfirmadas;
         this.listaReservasVerificadas = listaReservasVerificadas;
-        this.sleep_verification = sleep_verification;
+        this.sleep_verificacion = sleep_verificacion;
         SistemaDeReserva.sigueProcesoDeVerificacion = true;
     }
 
     public void run() {
-        VerificarReservas();
+        while (SistemaDeReserva.sigueProcesoDeCancelacion || !listaReservasConfirmadas.isEmpty()){
+            VerificarReserva();
+        }
+        
         SistemaDeReserva.sigueProcesoDeVerificacion = false;
     }
 
-    private boolean debeSeguirProceso() {
-        boolean debeContinuarProceso = SistemaDeReserva.sigueProcesoDeCancelacion || !listaReservasConfirmadas.isEmpty();
-        return debeContinuarProceso;
-    }
-
-    public void VerificarReservas() {
-        while (debeSeguirProceso())
+    public void VerificarReserva() {
             synchronized (listaReservasConfirmadas) {
                 if (!listaReservasConfirmadas.isEmpty()) {
                     Random random = new Random();
@@ -33,24 +30,20 @@ public class ProcesoDeVerificacion implements Runnable {
                     Reserva reserva = listaReservasConfirmadas.get(indiceAleatorio);
 
                     if (reserva.getCheck()) {
-
-                        //System.out.println("La reserva " + reserva.getFila() + " " + reserva.getColumna() + " estaba checkeada");
-                        //System.out.println("Se la marca como verificada.");
                         listaReservasConfirmadas.remove(reserva);
                         reserva.setEstado(EstadoReserva.VERIFICADA);
                         synchronized (listaReservasVerificadas) {
                             listaReservasVerificadas.add(reserva);
-                            try {
-                                Thread.sleep(sleep_verification);
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            }
+                            
                         }
-                    } else {
-                        // La reserva no estaba checkeada
-                        //System.out.println("La reserva " + reserva.getFila() + " " + reserva.getColumna() + " no estaba checkeada");
                     }
-                } 
+                
+                    try {
+                        Thread.sleep(0,sleep_verificacion);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }
             }
     }
 }
