@@ -20,7 +20,7 @@ public class Log implements Runnable {
         this.listaReservasPendientes = listaReservasPendientes;
 
         try {
-            FileHandler fileHandler = new FileHandler("log.txt");
+            FileHandler fileHandler = new FileHandler("log.txt", true);
             logger.addHandler(fileHandler);
             SimpleFormatter formatter = new SimpleFormatter();
             fileHandler.setFormatter(formatter);
@@ -32,15 +32,16 @@ public class Log implements Runnable {
 
     @Override
     public void run() {
+        int iteracion = 0;
         while (SistemaDeReserva.sigueProcesoDeVerificacion) {
             synchronized (sistemaDeReserva) {
-                // logger.info("Tamaño de la lista de Reservas Pendientes: " + listaReservasPendientes.size());
-                // logger.info("Tamaño de la lista de Reservas Confirmadas: " + listaReservasConfirmadas.size());
+                int tiempoTranscurrido = iteracion * 200;
+                logger.info("-----------------------LOG ITERATION-----------------------------------------");
+                logger.info("Tiempo transcurrido: " + tiempoTranscurrido + " ms");
+                logger.info("Tamaño de la lista de Reservas Pendientes: " + listaReservasPendientes.size());
+                logger.info("Tamaño de la lista de Reservas Confirmadas: " + listaReservasConfirmadas.size());
                 logger.info("Tamaño de la lista de Reservas Canceladas: " + listaReservasCanceladas.size());
                 logger.info("Tamaño de la lista de Reservas Verificadas: " + listaReservasVerificadas.size());
-                // if(listaReservasConfirmadas.size() == 1){
-                //     logger.info("El check de la reserva es: " + listaReservasConfirmadas.get(0).getCheck());
-                // }
 
                 logger.info("-----------------------ENDED LOG ITERATION-----------------------------------------");
 
@@ -56,12 +57,13 @@ public class Log implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
+            iteracion++;
         }
-        synchronized (listaReservasCanceladas) {
-            synchronized (listaReservasVerificadas) {
+        synchronized (sistemaDeReserva) {
+                logger.info("---------------------ITERACIÓN FINAL---------------------");
                 logger.info("Tamaño final de la lista de Reservas Canceladas:  " + listaReservasCanceladas.size());
                 logger.info("Tamaño final de la lista de Reservas Verificadas: " + listaReservasVerificadas.size());
-            }
+            
         }
 
         int capacidad = listaReservasCanceladas.size() + listaReservasVerificadas.size();

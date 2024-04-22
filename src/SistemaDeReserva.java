@@ -5,10 +5,10 @@ public class SistemaDeReserva {
     protected static final int FILAS = 31;
     protected static final int COLUMNAS = 6;
     protected static final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
-    private final long SLEEP_PENDIENTE = 1;
-    private final long SLEEP_PAGO = 1;
-    private final long SLEEP_CANCELACION = 1;
-    private final long SLEEP_VERIFICACION = 1;
+    private final long SLEEP_PENDIENTE;
+    private final long SLEEP_PAGO;
+    private final long SLEEP_CANCELACION;
+    private final long SLEEP_VERIFICACION;
     private Asiento[][] asientos;
     private ProcesoDeReserva procesoDeReserva;
 
@@ -28,8 +28,11 @@ public class SistemaDeReserva {
     private List<Reserva> reservasCanceladas;
     private List<Reserva> reservasVerificadas;
 
-    public SistemaDeReserva() {
-
+    public SistemaDeReserva(long SLEEP_PENDIENTE, long SLEEP_PAGO, long SLEEP_CANCELACION, long SLEEP_VERIFICACION) {
+        this.SLEEP_PENDIENTE = SLEEP_PENDIENTE;
+        this.SLEEP_PAGO = SLEEP_PAGO;
+        this.SLEEP_CANCELACION = SLEEP_CANCELACION;
+        this.SLEEP_VERIFICACION = SLEEP_VERIFICACION;
         this.asientos = new Asiento[FILAS][COLUMNAS];
         this.reservasPendientes = new ArrayList<>();
         this.reservasConfirmadas = new ArrayList<>();
