@@ -1,0 +1,106 @@
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: -----------------------LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: Tiempo transcurrido: 0 ms
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: 0.Tamaño de la lista de Reservas Pendientes: 0
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: 0.Tamaño de la lista de Reservas Confirmadas: 0
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: 0.Tamaño de la lista de Reservas Canceladas: 1
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: 0.Tamaño de la lista de Reservas Verificadas: 1
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: -----------------------LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: Tiempo transcurrido: 200 ms
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: 1.Tamaño de la lista de Reservas Pendientes: 5
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: 1.Tamaño de la lista de Reservas Confirmadas: 0
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: 1.Tamaño de la lista de Reservas Canceladas: 8
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: 1.Tamaño de la lista de Reservas Verificadas: 23
+abr. 22, 2024 6:30:21 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: -----------------------LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: Tiempo transcurrido: 400 ms
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 2.Tamaño de la lista de Reservas Pendientes: 1
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 2.Tamaño de la lista de Reservas Confirmadas: 1
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 2.Tamaño de la lista de Reservas Canceladas: 15
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 2.Tamaño de la lista de Reservas Verificadas: 45
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: -----------------------LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: Tiempo transcurrido: 600 ms
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 3.Tamaño de la lista de Reservas Pendientes: 5
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 3.Tamaño de la lista de Reservas Confirmadas: 0
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 3.Tamaño de la lista de Reservas Canceladas: 24
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 3.Tamaño de la lista de Reservas Verificadas: 65
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: -----------------------LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: Tiempo transcurrido: 800 ms
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 4.Tamaño de la lista de Reservas Pendientes: 7
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 4.Tamaño de la lista de Reservas Confirmadas: 1
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 4.Tamaño de la lista de Reservas Canceladas: 33
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 4.Tamaño de la lista de Reservas Verificadas: 83
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: -----------------------LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: Tiempo transcurrido: 1000 ms
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 5.Tamaño de la lista de Reservas Pendientes: 0
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 5.Tamaño de la lista de Reservas Confirmadas: 0
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 5.Tamaño de la lista de Reservas Canceladas: 39
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: 5.Tamaño de la lista de Reservas Verificadas: 103
+abr. 22, 2024 6:30:22 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: -----------------------LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: Tiempo transcurrido: 1200 ms
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: 6.Tamaño de la lista de Reservas Pendientes: 0
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: 6.Tamaño de la lista de Reservas Confirmadas: 1
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: 6.Tamaño de la lista de Reservas Canceladas: 45
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: 6.Tamaño de la lista de Reservas Verificadas: 124
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  45
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 141
+abr. 22, 2024 6:30:23 P. M. Log run
+INFORMACIÓN: Ocupación total: 141 de 186, Duración del programa: 1491 ms
