@@ -4,7 +4,6 @@ import java.util.List;
 public class ProcesoDeCancelacionValidacion implements Runnable {
     List<Reserva> listaReservasConfirmadas;
     List<Reserva> listaReservasCanceladas;
-    int reservasChequeadas;
     long sleep_cancelacion;
 
     public ProcesoDeCancelacionValidacion(List<Reserva> listaReservasConfirmadas,
@@ -12,12 +11,13 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
         this.listaReservasConfirmadas = listaReservasConfirmadas;
         this.listaReservasCanceladas = listaReservasCanceladas;
         this.sleep_cancelacion = sleep_cancelacion;
-        this.reservasChequeadas = 0;
+
         SistemaDeReserva.sigueProcesoDeCancelacion = true;
     }
 
+    @Override
     public void run() {
-        while ((reservasChequeadas < listaReservasConfirmadas.size()) || SistemaDeReserva.sigueProcesoDePago) {
+        while (SistemaDeReserva.sigueProcesoDePago || !listaReservasConfirmadas.isEmpty()) {
             ProcesarReservaConfirmada();
         }
         SistemaDeReserva.sigueProcesoDeCancelacion = false;
@@ -56,7 +56,6 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
 
                         }
                     } else {
-                        reservasChequeadas++;
                         reserva.setCheck(true);
 
                         try {

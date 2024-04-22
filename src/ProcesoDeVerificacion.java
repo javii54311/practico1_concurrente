@@ -14,6 +14,7 @@ public class ProcesoDeVerificacion implements Runnable {
         SistemaDeReserva.sigueProcesoDeVerificacion = true;
     }
 
+    @Override
     public void run() {
         while (SistemaDeReserva.sigueProcesoDeCancelacion || !listaReservasConfirmadas.isEmpty()){
             VerificarReserva();

@@ -17,7 +17,8 @@ public class ProcesoDePago implements Runnable {
         this.reservasProcesadas = 0;
         this.sleep_pago = sleep_pago;
     }
-
+    
+    @Override
     public void run() {
         while (reservasProcesadas < SistemaDeReserva.CANTIDAD_ASIENTOS) {
             pagarAsientoAleatorio();
