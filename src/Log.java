@@ -38,10 +38,10 @@ public class Log implements Runnable {
                 int tiempoTranscurrido = iteracion * 200;
                 logger.info("-----------------------LOG ITERATION-----------------------------------------");
                 logger.info("Tiempo transcurrido: " + tiempoTranscurrido + " ms");
-                logger.info(iteracion +".Tamaño de la lista de Reservas Pendientes: " + listaReservasPendientes.size());
-                logger.info(iteracion +".Tamaño de la lista de Reservas Confirmadas: " + listaReservasConfirmadas.size());
-                logger.info(iteracion +".Tamaño de la lista de Reservas Canceladas: " + listaReservasCanceladas.size());
-                logger.info(iteracion +".Tamaño de la lista de Reservas Verificadas: " + listaReservasVerificadas.size());
+                logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Pendientes: " + listaReservasPendientes.size());
+                logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Confirmadas: " + listaReservasConfirmadas.size());
+                logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Canceladas: " + listaReservasCanceladas.size());
+                logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Verificadas: " + listaReservasVerificadas.size());
 
                 logger.info("-----------------------ENDED LOG ITERATION-----------------------------------------");
 

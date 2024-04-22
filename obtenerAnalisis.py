@@ -1,32 +1,91 @@
 import matplotlib.pyplot as plt
+import re
 
 log_file = "log.txt"
-durations = []
-pendientes = [0]*12
-confirmadas = [0]*12
-canceladas = [0]*12
-verificadas = [0]*12
-t = []
-tiempos = [0]*12
-for i in range(12):
-    tiempos[i] = i*200
+duraciones = []
 
+pendientes = [[] for _ in range(200)]
+confirmadas = [[] for _ in range(200)]
+canceladas = [[] for _ in range(200)]
+verificadas = [[] for _ in range(200)]
 
-with open(log_file, "r") as file:
+with open(log_file, 'r') as file:    
     for line in file:
-        if "DuraciÃ³n del programa: " in line:
-            duration = line.split("DuraciÃ³n del programa: ")[1].split(" ms")[0]
-            durations.append(int(duration))
-        if "TamaÃ±o de la lista de Reservas Pendientes: " in line:
-            pendiente = line.split("TamaÃ±o de la lista de Reservas Pendientes: ")[1].split("\n")[0]
-            pendientes.append(int(pendiente))
-        if "TamaÃ±o de la lista de Reservas Confirmadas: " in line:
-            confirmada = line.split("TamaÃ±o de la lista de Reservas Confirmadas: ")[1].split("\n")[0]
-            confirmadas.append(int(confirmada))
-        if "TamaÃ±o de la lista de Reservas Canceladas: " in line:
-            cancelada = line.split("TamaÃ±o de la lista de Reservas Canceladas: ")[1].split("\n")[0]
-            canceladas.append(int(cancelada))
-        if "TamaÃ±o de la lista de Reservas Verificadas: " in line:
-            verificada = line.split("TamaÃ±o de la lista de Reservas Verificadas: ")[1].split("\n")[0]
-            verificadas.append(int(verificada))
+        if "Duración del programa" in line:
+            duration = line.split(": ")[-1].split(" ")[0]
+            duraciones.append(int(duration))
+
+        match = re.search(r'(\d+).Tamaño de la lista de Reservas Pendientes: (\d+)', line)
+        if match:
+            # Extraer los números encontrados
+            numeroA = int(match.group(1))
+            numeroB = int(match.group(2))
+            
+            # Almacenar el número B en el arreglo correspondiente
+            pendientes[numeroA // 200].append(numeroB)
+        
+        match = re.search(r'(\d+).Tamaño de la lista de Reservas Confirmadas: (\d+)', line)
+        if match:
+            # Extraer los números encontrados
+            numeroA = int(match.group(1))
+            numeroB = int(match.group(2))
+            
+            # Almacenar el número B en el arreglo correspondiente
+            confirmadas[numeroA // 200].append(numeroB)
+        
+        match = re.search(r'(\d+).Tamaño de la lista de Reservas Canceladas: (\d+)', line)
+        if match:
+            # Extraer los números encontrados
+            numeroA = int(match.group(1))
+            numeroB = int(match.group(2))
+            
+            # Almacenar el número B en el arreglo correspondiente
+            canceladas[numeroA // 200].append(numeroB)
+        
+        match = re.search(r'(\d+).Tamaño de la lista de Reservas Verificadas: (\d+)', line)
+        if match:
+            # Extraer los números encontrados
+            numeroA = int(match.group(1))
+            numeroB = int(match.group(2))
+            
+            # Almacenar el número B en el arreglo correspondiente
+            verificadas[numeroA // 200].append(numeroB)
+            
+            
+media_verificadas=[]
+media_confirmadas=[]
+media_canceladas=[]
+media_pendientes=[]
+
+
+for i in range(14):
+    media_verificadas.append(sum(verificadas[i])/len(verificadas[i]))
+    media_confirmadas.append(sum(confirmadas[i])/len(confirmadas[i]))
+    media_canceladas.append(sum(canceladas[i])/len(canceladas[i]))
+    media_pendientes.append(sum(pendientes[i])/len(pendientes[i]))
+
+plt.plot(media_verificadas, color='red', label='Verificadas')
+plt.plot(media_confirmadas, color='blue', label='Confirmadas')
+plt.plot(media_canceladas, color='green', label='Canceladas')
+plt.plot(media_pendientes, color='orange', label='Pendientes')
+plt.xlabel('Índice')
+plt.ylabel('Media')
+plt.title('Gráfico de Medias')
+
+plt.legend()
+plt.show()
+
+
+
+
+
+
+plt.hist(duraciones, bins=10)
+plt.xlabel('Duración')
+plt.ylabel('Frecuencia')
+plt.title('Histograma de Duraciones')
+plt.show()
+        
+        
+
 
