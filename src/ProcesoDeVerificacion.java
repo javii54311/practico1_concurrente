@@ -20,6 +20,7 @@ public class ProcesoDeVerificacion implements Runnable {
         }
         
         SistemaDeReserva.sigueProcesoDeVerificacion = false;
+        System.out.print("Terminado hilos de verificacion\n");
     }
 
     public void VerificarReserva() {

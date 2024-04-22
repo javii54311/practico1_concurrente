@@ -66,6 +66,6 @@ public class ProcesoDeReserva implements Runnable{
         while (hayAsientosLibres()){
             reservarAsientoAleatorio();
         }
-        
+        System.out.print("Terminado hilos de reserva\n");
     }
 }

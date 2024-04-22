@@ -51,7 +51,7 @@ public class SistemaDeReserva {
         
         this.procesoDeVerificacion = new ProcesoDeVerificacion(reservasConfirmadas, reservasVerificadas, SLEEP_VERIFICACION);
         
-        this.logDeReservas = new Log(reservasCanceladas, reservasVerificadas);
+        this.logDeReservas = new Log(reservasCanceladas, reservasVerificadas, reservasConfirmadas, reservasPendientes,this);
     }
 
     public ProcesoDeReserva getProcesoDeReserva() {

@@ -21,6 +21,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
             ProcesarReservaConfirmada();
         }
         SistemaDeReserva.sigueProcesoDeCancelacion = false;
+        System.out.print("Terminado hilos de cancelacion/validacion\n");
     }
 
     public void ProcesarReservaConfirmada() {

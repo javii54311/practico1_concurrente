@@ -23,6 +23,7 @@ public class ProcesoDePago implements Runnable {
             pagarAsientoAleatorio();
         }
         SistemaDeReserva.sigueProcesoDePago = false;
+        System.out.print("Terminado hilos de pago\n");
     }
 
     public void pagarAsientoAleatorio() {
