@@ -5,6 +5,7 @@ enum EstadoAsiento {
 
 // Clase Asiento
 public class Asiento {
+    
     private EstadoAsiento estado;
 
     public Asiento() {

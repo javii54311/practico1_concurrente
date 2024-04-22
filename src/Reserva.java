@@ -1,4 +1,9 @@
+// Enumeración para los estados de las reservas
+enum EstadoReserva {
+    CREADA,PENDIENTE_DE_PAGO, CANCELADA, CONFIRMADA, VERIFICADA
+}
 class Reserva {
+
     private EstadoReserva estado;
     private int fila;
     private int columna;
@@ -6,11 +11,19 @@ class Reserva {
 
     private boolean check;
 
+
+    public Reserva(EstadoReserva estado, int fila, int columna, Asiento asiento) {
+        this.estado = estado;
+        this.fila = fila;
+        this.columna = columna;
+        this.asiento = asiento;
+        this.check = false;
+
+    }
     public Reserva() {
         this.estado = EstadoReserva.CREADA;
         this.check = false;
     }
-
     public EstadoReserva getEstado() {
         return estado;
     }
@@ -49,9 +62,4 @@ class Reserva {
     public int getColumna() {
         return columna;
     }
-}
-
-// Enumeración para los estados de las reservas
-enum EstadoReserva {
-    CREADA,PENDIENTE_DE_PAGO, CANCELADA, CONFIRMADA, VERIFICADA
 }

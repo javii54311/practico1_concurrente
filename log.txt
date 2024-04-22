@@ -1,0 +1,28 @@
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Canceladas: 0
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Verificadas: 0
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Canceladas: 3
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Verificadas: 37
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Canceladas: 10
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Verificadas: 73
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Canceladas: 18
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Verificadas: 108
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Canceladas: 22
+abr. 21, 2024 9:23:38 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Verificadas: 147
+abr. 21, 2024 9:23:39 P. M. Log run
+INFORMACIÓN: ---------------------------------------------------------------------------
+abr. 21, 2024 9:23:39 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Canceladas final: 27
+abr. 21, 2024 9:23:39 P. M. Log run
+INFORMACIÓN: Tamaño de la listaReservas Verificadas final: 159
+abr. 21, 2024 9:23:39 P. M. Log run
+INFORMACIÓN: Ocupación total: 159 de 186, Duración del programa: 1050 ms
