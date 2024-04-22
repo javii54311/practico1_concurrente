@@ -38,6 +38,10 @@ public class Log implements Runnable {
                 logger.info("Tamaño de la listaReservas Confirmadas: " + listaReservasConfirmadas.size());
                 logger.info("Tamaño de la listaReservas Canceladas: " + listaReservasCanceladas.size());
                 logger.info("Tamaño de la listaReservas Verificadas: " + listaReservasVerificadas.size());
+                if(listaReservasConfirmadas.size() == 1){
+                    logger.info("El check de la reserva es: " + listaReservasConfirmadas.get(0).getCheck());
+                }
+
                 logger.info("---------------------------------------------------------------------------");
 
                 try {

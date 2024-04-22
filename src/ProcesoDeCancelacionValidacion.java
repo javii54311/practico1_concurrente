@@ -17,8 +17,10 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
     }
 
     public void run() {
-        while ((reservasChequeadas < listaReservasConfirmadas.size()) || SistemaDeReserva.sigueProcesoDePago) {
+
+        while (SistemaDeReserva.sigueProcesoDePago || !listaReservasConfirmadas.isEmpty()){
             ProcesarReservaConfirmada();
+
         }
         SistemaDeReserva.sigueProcesoDeCancelacion = false;
         System.out.print("Terminado hilos de cancelacion/validacion\n");

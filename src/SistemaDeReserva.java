@@ -5,10 +5,10 @@ public class SistemaDeReserva {
     protected static final int FILAS = 31;
     protected static final int COLUMNAS = 6;
     protected static final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
-    private final long SLEEP_PENDIENTE = 1;
-    private final long SLEEP_PAGO = 1;
-    private final long SLEEP_CANCELACION = 1;
-    private final long SLEEP_VERIFICACION = 1;
+    private final int SLEEP_PENDIENTE = 1;
+    private final int SLEEP_PAGO = 1;
+    private final int SLEEP_CANCELACION = 1;
+    private final int SLEEP_VERIFICACION = 1;
     private Asiento[][] asientos;
     private ProcesoDeReserva procesoDeReserva;
 
