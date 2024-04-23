@@ -4,14 +4,14 @@ import java.util.List;
 public class ProcesoDeCancelacionValidacion implements Runnable {
     List<Reserva> listaReservasConfirmadas;
     List<Reserva> listaReservasCanceladas;
-    long sleep_cancelacion;
+    long SLEEP_CANCELACION;
 
     public ProcesoDeCancelacionValidacion(List<Reserva> listaReservasConfirmadas,
-    List<Reserva> listaReservasCanceladas, long sleep_cancelacion) {
+    List<Reserva> listaReservasCanceladas, long SLEEP_CANCELACION) {
 
         this.listaReservasConfirmadas = listaReservasConfirmadas;
         this.listaReservasCanceladas = listaReservasCanceladas;
-        this.sleep_cancelacion = sleep_cancelacion;
+        this.SLEEP_CANCELACION = SLEEP_CANCELACION;
 
         SistemaDeReserva.sigueProcesoDeCancelacion = true;
     }
@@ -25,7 +25,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
         SistemaDeReserva.sigueProcesoDeCancelacion = false;
     }
 
-    public void ProcesarReservaConfirmada() {
+    private void ProcesarReservaConfirmada() {
         Random random = new Random();
         synchronized (listaReservasConfirmadas) {
             // Verificar si hay reservas confirmadas
@@ -43,7 +43,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
                         synchronized (listaReservasCanceladas) {
                             listaReservasCanceladas.add(reserva);
                             try {
-                                Thread.sleep(sleep_cancelacion);
+                                Thread.sleep(SLEEP_CANCELACION);
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
@@ -62,7 +62,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
                         reserva.setCheck(true);
 
                         try {
-                            Thread.sleep(sleep_cancelacion);
+                            Thread.sleep(SLEEP_CANCELACION);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }

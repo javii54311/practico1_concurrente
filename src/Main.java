@@ -1,9 +1,9 @@
 public class Main {
     public static void main(String[] args) {
-        long SLEEP_PENDIENTE = 60;
-        long SLEEP_PAGO = 60;
-        long SLEEP_CANCELACION = 60;
-        long SLEEP_VERIFICACION = 60;
+        long SLEEP_PENDIENTE = 1;
+        long SLEEP_PAGO = 1;
+        long SLEEP_CANCELACION = 1;
+        long SLEEP_VERIFICACION = 1;
 
         // Crear un sistema de reserva
         SistemaDeReserva sistemaDeReserva = new SistemaDeReserva(SLEEP_PENDIENTE, SLEEP_PAGO, SLEEP_CANCELACION, SLEEP_VERIFICACION);

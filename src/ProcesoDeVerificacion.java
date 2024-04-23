@@ -2,15 +2,15 @@ import java.util.List;
 import java.util.Random;
 
 public class ProcesoDeVerificacion implements Runnable {
-    long sleep_verificacion;
+    long SLEEP_VERIFICACION;
     List<Reserva> listaReservasConfirmadas;
     List<Reserva> listaReservasVerificadas;
 
     public ProcesoDeVerificacion(List<Reserva> listaReservasConfirmadas, List<Reserva> listaReservasVerificadas,
-            long sleep_verificacion) {
+            long SLEEP_VERIFICACION) {
         this.listaReservasConfirmadas = listaReservasConfirmadas;
         this.listaReservasVerificadas = listaReservasVerificadas;
-        this.sleep_verificacion = sleep_verificacion;
+        this.SLEEP_VERIFICACION = SLEEP_VERIFICACION;
         SistemaDeReserva.sigueProcesoDeVerificacion = true;
     }
 
@@ -24,7 +24,7 @@ public class ProcesoDeVerificacion implements Runnable {
         SistemaDeReserva.sigueProcesoDeVerificacion = false;
     }
 
-    public void VerificarReserva() {
+    private void VerificarReserva() {
             synchronized (listaReservasConfirmadas) {
                 if (!listaReservasConfirmadas.isEmpty()) {
                     Random random = new Random();
@@ -41,7 +41,7 @@ public class ProcesoDeVerificacion implements Runnable {
                             listaReservasVerificadas.add(reserva);
 
                             try {
-                                Thread.sleep(sleep_verificacion);
+                                Thread.sleep(SLEEP_VERIFICACION);
                             } catch (InterruptedException e) {
                                 e.printStackTrace();
                             }

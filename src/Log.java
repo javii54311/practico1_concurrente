@@ -5,8 +5,7 @@ public class Log implements Runnable {
     private static final Logger logger = Logger.getLogger(Log.class.getName());
     private List<Reserva> listaReservasCanceladas;
     private List<Reserva> listaReservasVerificadas;
-    private List<Reserva> listaReservasConfirmadas;
-    private List<Reserva> listaReservasPendientes;
+
     private long tiempoInicio;
     private SistemaDeReserva sistemaDeReserva;
 
@@ -16,8 +15,6 @@ public class Log implements Runnable {
         this.sistemaDeReserva = sistemaDeReserva;
         this.listaReservasCanceladas = listaReservasCanceladas;
         this.listaReservasVerificadas = listaReservasVerificadas;
-        this.listaReservasConfirmadas = listaReservasConfirmadas;
-        this.listaReservasPendientes = listaReservasPendientes;
 
         try {
             FileHandler fileHandler = new FileHandler("log.txt");
@@ -34,14 +31,9 @@ public class Log implements Runnable {
     public void run() {
         while (SistemaDeReserva.sigueProcesoDeVerificacion) {
             synchronized (sistemaDeReserva) {
-                // logger.info("Tamaño de la lista de Reservas Pendientes: " + listaReservasPendientes.size());
-                // logger.info("Tamaño de la lista de Reservas Confirmadas: " + listaReservasConfirmadas.size());
+                logger.info("-----------------------STARTED LOG ITERATION-----------------------------------------");
                 logger.info("Tamaño de la lista de Reservas Canceladas: " + listaReservasCanceladas.size());
                 logger.info("Tamaño de la lista de Reservas Verificadas: " + listaReservasVerificadas.size());
-                // if(listaReservasConfirmadas.size() == 1){
-                //     logger.info("El check de la reserva es: " + listaReservasConfirmadas.get(0).getCheck());
-                // }
-
                 logger.info("-----------------------ENDED LOG ITERATION-----------------------------------------");
 
                 try {
@@ -57,6 +49,7 @@ public class Log implements Runnable {
                 e.printStackTrace();
             }
         }
+
         synchronized (listaReservasCanceladas) {
             synchronized (listaReservasVerificadas) {
                 logger.info("Tamaño final de la lista de Reservas Canceladas:  " + listaReservasCanceladas.size());

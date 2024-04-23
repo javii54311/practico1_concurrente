@@ -6,16 +6,16 @@ public class ProcesoDePago implements Runnable {
     List<Reserva> listaReservasConfirmadas;
     List<Reserva> listaReservasCanceladas;
     int reservasProcesadas;
-    long sleep_pago;
+    long SLEEP_PAGO;
     boolean sigueProcesoActual;
 
-    public ProcesoDePago(List<Reserva> pendientes, List<Reserva> confirmadas, List<Reserva> canceladas, long sleep_pago) {
+    public ProcesoDePago(List<Reserva> pendientes, List<Reserva> confirmadas, List<Reserva> canceladas, long SLEEP_PAGO) {
         
         this.listaReservasPendientes = pendientes;
         this.listaReservasConfirmadas = confirmadas;
         this.listaReservasCanceladas = canceladas;
         this.reservasProcesadas = 0;
-        this.sleep_pago = sleep_pago;
+        this.SLEEP_PAGO = SLEEP_PAGO;
     }
     
     @Override
@@ -27,7 +27,7 @@ public class ProcesoDePago implements Runnable {
         SistemaDeReserva.sigueProcesoDePago = false;
     }
 
-    public void pagarAsientoAleatorio() {
+    private void pagarAsientoAleatorio() {
         Random random = new Random();
         synchronized (listaReservasPendientes) {
             if (!listaReservasPendientes.isEmpty()) {
@@ -47,7 +47,7 @@ public class ProcesoDePago implements Runnable {
 
                         // Se simula el tiempo de espera.
                         try {
-                            Thread.sleep(sleep_pago);
+                            Thread.sleep(SLEEP_PAGO);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
@@ -73,7 +73,7 @@ public class ProcesoDePago implements Runnable {
 
                         // Se simula el tiempo de espera.
                         try {
-                            Thread.sleep(sleep_pago);
+                            Thread.sleep(SLEEP_PAGO);
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

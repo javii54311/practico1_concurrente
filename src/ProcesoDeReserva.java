@@ -2,24 +2,24 @@ import java.util.List;
 import java.util.Random;
 
 public class ProcesoDeReserva implements Runnable{
-    long sleepReservaPendiente;
+    long SLEEP_PENDIENTE;
     List<Reserva> listaReservasPendientes;
     private Asiento [][] asientos;
 
-    public ProcesoDeReserva(Asiento[][] asientos, List<Reserva> listaReservasPendientes, long sleepReservaPendiente) {
+    public ProcesoDeReserva(Asiento[][] asientos, List<Reserva> listaReservasPendientes, long SLEEP_PENDIENTE) {
         this.asientos = asientos;
-        this.sleepReservaPendiente = sleepReservaPendiente;
+        this.SLEEP_PENDIENTE = SLEEP_PENDIENTE;
         this.listaReservasPendientes = listaReservasPendientes;
 
     }
 
-    public Asiento getAsiento(int fila, int columna) { // Método sincronizado 
+    private Asiento getAsiento(int fila, int columna) { // Método sincronizado 
        synchronized (asientos[fila][columna]) {
             return asientos[fila][columna];
        }    
     }
 
-    public boolean hayAsientosLibres() { 
+    private boolean hayAsientosLibres() { 
         for (int i = 0; i < SistemaDeReserva.FILAS; i++) {
             for (int j = 0; j < SistemaDeReserva.COLUMNAS; j++) {
                 if (getAsiento(i, j).getEstado() == EstadoAsiento.LIBRE) {
@@ -30,7 +30,7 @@ public class ProcesoDeReserva implements Runnable{
         return false;
     }
 
-    public void reservarAsientoAleatorio() {
+    private void reservarAsientoAleatorio() {
 
         // Seleccionar un asiento aleatorio
         Random random = new Random();
@@ -49,7 +49,7 @@ public class ProcesoDeReserva implements Runnable{
 
                 // Se simula el tiempo de espera.
                 try { 
-                    Thread.sleep(sleepReservaPendiente);
+                    Thread.sleep(SLEEP_PENDIENTE);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
