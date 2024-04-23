@@ -19,6 +19,7 @@ public class ProcesoDeVerificacion implements Runnable {
         while (SistemaDeReserva.sigueProcesoDeCancelacion || !listaReservasConfirmadas.isEmpty()){
             VerificarReserva();
         }
+        // Cuando se cumpla la condición de salida, los procesos de verificación habrán terminado
         
         SistemaDeReserva.sigueProcesoDeVerificacion = false;
     }
@@ -27,13 +28,16 @@ public class ProcesoDeVerificacion implements Runnable {
             synchronized (listaReservasConfirmadas) {
                 if (!listaReservasConfirmadas.isEmpty()) {
                     Random random = new Random();
+                    // Seleccionar una reserva aleatoria de la lista de confirmadas
                     int indiceAleatorio = random.nextInt(listaReservasConfirmadas.size());
                     Reserva reserva = listaReservasConfirmadas.get(indiceAleatorio);
 
                     if (reserva.getCheck()) {
+                        // La reserva estaba chequeada. Se la mueve a la lista de verificadas.
                         listaReservasConfirmadas.remove(reserva);
                         reserva.setEstado(EstadoReserva.VERIFICADA);
                         synchronized (listaReservasVerificadas) {
+
                             listaReservasVerificadas.add(reserva);
 
                             try {
@@ -52,7 +56,6 @@ public class ProcesoDeVerificacion implements Runnable {
                             }
                         }
                     }
-                
 
                 }
                 try

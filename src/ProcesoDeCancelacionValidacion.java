@@ -7,7 +7,8 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
     long sleep_cancelacion;
 
     public ProcesoDeCancelacionValidacion(List<Reserva> listaReservasConfirmadas,
-            List<Reserva> listaReservasCanceladas, long sleep_cancelacion) {
+    List<Reserva> listaReservasCanceladas, long sleep_cancelacion) {
+
         this.listaReservasConfirmadas = listaReservasConfirmadas;
         this.listaReservasCanceladas = listaReservasCanceladas;
         this.sleep_cancelacion = sleep_cancelacion;
@@ -20,6 +21,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
         while (SistemaDeReserva.sigueProcesoDePago || !listaReservasConfirmadas.isEmpty()) {
             ProcesarReservaConfirmada();
         }
+        // Cuando se cumpla la condición de salida, los procesos de cancelacion/validacion habran terminado
         SistemaDeReserva.sigueProcesoDeCancelacion = false;
     }
 
@@ -33,9 +35,9 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
                 Reserva reserva = listaReservasConfirmadas.get(indiceAleatorio);
 
                 if (reserva.getCheck()) {
-
+                    // La reserva ya ha sido procesada
                 } else {
-                    if (random.nextDouble() < 0.1) {
+                    if (random.nextDouble() < 0.1) { // 10% de probabilidad de que la reserva sea cancelada
                         reserva.getAsiento().setEstado(EstadoAsiento.DESCARTADO);
                         listaReservasConfirmadas.remove(reserva);
                         synchronized (listaReservasCanceladas) {
@@ -56,6 +58,7 @@ public class ProcesoDeCancelacionValidacion implements Runnable {
 
                         }
                     } else {
+                        // La reserva ha sido validada con un 90% de probabilidad
                         reserva.setCheck(true);
 
                         try {

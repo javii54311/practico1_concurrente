@@ -71,6 +71,6 @@ public class ProcesoDeReserva implements Runnable{
         while (hayAsientosLibres()){
             reservarAsientoAleatorio();
         }
-        
+        // Ya se han reservado todos los asientos.
     }
 }

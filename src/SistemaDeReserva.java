@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 public class SistemaDeReserva {
-    // Caracteristicas del avios
+    // Caracteristicas del avion
     protected static final int FILAS = 31;
     protected static final int COLUMNAS = 6;
     protected static final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
@@ -55,10 +55,8 @@ public class SistemaDeReserva {
         sigueProcesoDePago = true;
 
         this.procesoDeCancelacionValidacion = new ProcesoDeCancelacionValidacion(reservasConfirmadas, reservasCanceladas, SLEEP_CANCELACION);
-        sigueProcesoDeCancelacion = true;
 
         this.procesoDeVerificacion = new ProcesoDeVerificacion(reservasConfirmadas, reservasVerificadas, SLEEP_VERIFICACION);
-        sigueProcesoDeVerificacion = true;
 
         this.logDeReservas = new Log(reservasCanceladas, reservasVerificadas, reservasConfirmadas, reservasPendientes, this);
     }

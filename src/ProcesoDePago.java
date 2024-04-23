@@ -23,24 +23,29 @@ public class ProcesoDePago implements Runnable {
         while (reservasProcesadas < SistemaDeReserva.CANTIDAD_ASIENTOS) {
             pagarAsientoAleatorio();
         }
+        // Ya se han procesado todas las reservas pendientes.
         SistemaDeReserva.sigueProcesoDePago = false;
     }
 
     public void pagarAsientoAleatorio() {
         Random random = new Random();
         synchronized (listaReservasPendientes) {
-            // Obtener una reserva aleatoria de la lista de reservas pendientes
             if (!listaReservasPendientes.isEmpty()) {
+                // Una vez verificado que hay al menos una reserva pendiente, se procedera a resolverla.
                 reservasProcesadas++;
+
+                // Se selecciona aleatoriamente una reserva pendiente.
                 int indiceAleatorio = random.nextInt(listaReservasPendientes.size());
                 Reserva reserva = listaReservasPendientes.get(indiceAleatorio);
 
-                // Intentar pagar la reserva
-                if (random.nextDouble() < 0.9) { // 90% de probabilidad de éxito
+                // Intentar pagar la reserva.
+                if (random.nextDouble() < 0.9) { // 90% de probabilidad de que la reserva sea pagada
                     synchronized (listaReservasConfirmadas) {
                         listaReservasPendientes.remove(reserva);
                         listaReservasConfirmadas.add(reserva);
                         reserva.setEstado(EstadoReserva.CONFIRMADA);
+
+                        // Se simula el tiempo de espera.
                         try {
                             Thread.sleep(sleep_pago);
                         } catch (InterruptedException e) {
@@ -59,12 +64,14 @@ public class ProcesoDePago implements Runnable {
 
                     }
                 } else {
+                    // Con un 10% de probabilidad, la reserva no se paga y se cancela.
                     synchronized (listaReservasCanceladas) {
                         reserva.getAsiento().setEstado(EstadoAsiento.DESCARTADO);
                         listaReservasPendientes.remove(reserva);
                         listaReservasCanceladas.add(reserva);
                         reserva.setEstado(EstadoReserva.CANCELADA);
 
+                        // Se simula el tiempo de espera.
                         try {
                             Thread.sleep(sleep_pago);
                         } catch (InterruptedException e) {
