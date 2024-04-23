@@ -7,10 +7,10 @@ public class SistemaDeReserva {
     protected static final int CANTIDAD_ASIENTOS = FILAS * COLUMNAS;
 
     // Tiempo de espera de cada proceso (en milisegundos)
-    private final long SLEEP_PENDIENTE = 1;
-    private final long SLEEP_PAGO = 1;
-    private final long SLEEP_CANCELACION = 1;
-    private final long SLEEP_VERIFICACION = 1;
+    private final long SLEEP_PENDIENTE;
+    private final long SLEEP_PAGO;
+    private final long SLEEP_CANCELACION;
+    private final long SLEEP_VERIFICACION;
 
     private Asiento[][] asientos;
 
@@ -34,8 +34,11 @@ public class SistemaDeReserva {
     private List<Reserva> reservasCanceladas;
     private List<Reserva> reservasVerificadas;
 
-    public SistemaDeReserva() {
-
+    public SistemaDeReserva(long SLEEP_PENDIENTE, long SLEEP_PAGO, long SLEEP_CANCELACION, long SLEEP_VERIFICACION) {
+        this.SLEEP_PENDIENTE = SLEEP_PENDIENTE;
+        this.SLEEP_PAGO = SLEEP_PAGO;
+        this.SLEEP_CANCELACION = SLEEP_CANCELACION;
+        this.SLEEP_VERIFICACION = SLEEP_VERIFICACION;
         this.asientos = new Asiento[FILAS][COLUMNAS];
         this.reservasPendientes = new ArrayList<>();
         this.reservasConfirmadas = new ArrayList<>();
@@ -49,14 +52,14 @@ public class SistemaDeReserva {
             }
         }
         
-        this.procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes, SLEEP_PENDIENTE);
+        this.procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes, this.SLEEP_PENDIENTE);
         
-        this.procesoDePago = new ProcesoDePago(reservasPendientes, reservasConfirmadas, reservasCanceladas, SLEEP_PAGO);
+        this.procesoDePago = new ProcesoDePago(reservasPendientes, reservasConfirmadas, reservasCanceladas, this.SLEEP_PAGO);
         sigueProcesoDePago = true;
 
-        this.procesoDeCancelacionValidacion = new ProcesoDeCancelacionValidacion(reservasConfirmadas, reservasCanceladas, SLEEP_CANCELACION);
+        this.procesoDeCancelacionValidacion = new ProcesoDeCancelacionValidacion(reservasConfirmadas, reservasCanceladas, this.SLEEP_CANCELACION);
 
-        this.procesoDeVerificacion = new ProcesoDeVerificacion(reservasConfirmadas, reservasVerificadas, SLEEP_VERIFICACION);
+        this.procesoDeVerificacion = new ProcesoDeVerificacion(reservasConfirmadas, reservasVerificadas, this.SLEEP_VERIFICACION);
 
         this.logDeReservas = new Log(reservasCanceladas, reservasVerificadas, reservasConfirmadas, reservasPendientes, this);
     }
