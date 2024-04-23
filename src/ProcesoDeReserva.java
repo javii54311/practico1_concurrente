@@ -31,6 +31,8 @@ public class ProcesoDeReserva implements Runnable{
     }
 
     public void reservarAsientoAleatorio() {
+
+        // Seleccionar un asiento aleatorio
         Random random = new Random();
         int filaAleatoria = random.nextInt(SistemaDeReserva.FILAS);
         int columnaAleatoria = random.nextInt(SistemaDeReserva.COLUMNAS); 
@@ -41,14 +43,17 @@ public class ProcesoDeReserva implements Runnable{
             Reserva reserva = new Reserva(EstadoReserva.PENDIENTE_DE_PAGO,filaAleatoria,columnaAleatoria, asiento);
             
             if(asiento.getEstado() == EstadoAsiento.LIBRE) {
+                // El asiento seleccionado se encontraba libre.
                 asiento.setEstado(EstadoAsiento.OCUPADO);
                 listaReservasPendientes.add(reserva);
-                //System.out.printf("%s Reserva hecha en: Fila %d, Columna %d\n", Thread.currentThread().getName(),filaAleatoria, columnaAleatoria);
-                try {
+
+                // Se simula el tiempo de espera.
+                try { 
                     Thread.sleep(sleepReservaPendiente);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+
             }
             try
             {
