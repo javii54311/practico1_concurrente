@@ -19,6 +19,7 @@ with open(log_file, 'r') as file:
                 duraciones.append(int(duration))
             #else:
                 #duraciones.append(3500)
+        
 
         match = re.search(r'(\d+).Tamaño de la lista de Reservas Pendientes: (\d+)', line)
         if match:
@@ -77,9 +78,9 @@ for i in range(13):
 
 a = 13
 while(a<20):
-    media_verificadas.append(150)
+    media_verificadas.append(148.2)
     media_confirmadas.append(0)
-    media_canceladas.append(36)  
+    media_canceladas.append(37.8)  
     media_pendientes.append(0)
     a+=1
 
@@ -89,7 +90,7 @@ plt.plot(media_verificadas, color='red', label='Verificadas')
 plt.plot(media_confirmadas, color='blue', label='Confirmadas')
 plt.plot(media_canceladas, color='green', label='Canceladas')
 plt.plot(media_pendientes, color='orange', label='Pendientes')
-plt.xlabel('Índice')
+plt.xlabel('Índice [200 milis]')
 plt.ylabel('Media')
 plt.title('Gráfico de Medias')
 
