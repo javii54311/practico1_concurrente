@@ -51,10 +51,13 @@ public class Main {
 
     public static void main(String[] args) {
 
+        System.out.println("30");
+
         for(int i= 0; i<10; i++){
             Main main = new Main();
-            main.generarCorrida(1, 1, 1, 1);
+            main.generarCorrida(30, 30, 30, 30);
         }
         
     }
+    
 }

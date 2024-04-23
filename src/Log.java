@@ -20,7 +20,7 @@ public class Log implements Runnable {
         this.listaReservasPendientes = listaReservasPendientes;
 
         try {
-            FileHandler fileHandler = new FileHandler("log.txt", true);
+            FileHandler fileHandler = new FileHandler("slep30.txt", true);
             logger.addHandler(fileHandler);
             SimpleFormatter formatter = new SimpleFormatter();
             fileHandler.setFormatter(formatter);
@@ -36,14 +36,14 @@ public class Log implements Runnable {
         while (SistemaDeReserva.sigueProcesoDeVerificacion) {
             synchronized (sistemaDeReserva) {
                 int tiempoTranscurrido = iteracion * 200;
-                logger.info("-----------------------LOG ITERATION-----------------------------------------");
-                logger.info("Tiempo transcurrido: " + tiempoTranscurrido + " ms");
-                logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Pendientes: " + listaReservasPendientes.size());
-                logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Confirmadas: " + listaReservasConfirmadas.size());
-                logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Canceladas: " + listaReservasCanceladas.size());
-                logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Verificadas: " + listaReservasVerificadas.size());
+                //logger.info("-----------------------LOG ITERATION-----------------------------------------");
+                //logger.info("Tiempo transcurrido: " + tiempoTranscurrido + " ms");
+                //logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Pendientes: " + listaReservasPendientes.size());
+                //logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Confirmadas: " + listaReservasConfirmadas.size());
+                //logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Canceladas: " + listaReservasCanceladas.size());
+                //logger.info(tiempoTranscurrido +".Tamaño de la lista de Reservas Verificadas: " + listaReservasVerificadas.size());
 
-                logger.info("-----------------------ENDED LOG ITERATION-----------------------------------------");
+                //logger.info("-----------------------ENDED LOG ITERATION-----------------------------------------");
 
                 try {
                     sistemaDeReserva.notifyAll();

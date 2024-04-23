@@ -1,0 +1,88 @@
+abr 23, 2024 12:27:39 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:27:39 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  31
+abr 23, 2024 12:27:39 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 155
+abr 23, 2024 12:27:39 AM Log run
+INFORMACIÓN: Ocupación total: 155 de 186, Duración del programa: 24071 ms
+abr 23, 2024 12:28:03 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:28:03 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  36
+abr 23, 2024 12:28:03 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 150
+abr 23, 2024 12:28:03 AM Log run
+INFORMACIÓN: Ocupación total: 150 de 186, Duración del programa: 24035 ms
+abr 23, 2024 12:28:28 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:28:28 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  29
+abr 23, 2024 12:28:28 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 157
+abr 23, 2024 12:28:28 AM Log run
+INFORMACIÓN: Ocupación total: 157 de 186, Duración del programa: 24857 ms
+abr 23, 2024 12:28:52 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:28:52 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  36
+abr 23, 2024 12:28:52 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 150
+abr 23, 2024 12:28:52 AM Log run
+INFORMACIÓN: Ocupación total: 150 de 186, Duración del programa: 24181 ms
+abr 23, 2024 12:29:16 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:29:16 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  34
+abr 23, 2024 12:29:16 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 152
+abr 23, 2024 12:29:16 AM Log run
+INFORMACIÓN: Ocupación total: 152 de 186, Duración del programa: 24142 ms
+abr 23, 2024 12:29:40 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:29:40 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  33
+abr 23, 2024 12:29:40 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 153
+abr 23, 2024 12:29:40 AM Log run
+INFORMACIÓN: Ocupación total: 153 de 186, Duración del programa: 24144 ms
+abr 23, 2024 12:30:04 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:30:04 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  31
+abr 23, 2024 12:30:04 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 155
+abr 23, 2024 12:30:04 AM Log run
+INFORMACIÓN: Ocupación total: 155 de 186, Duración del programa: 23266 ms
+abr 23, 2024 12:30:28 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:30:28 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  37
+abr 23, 2024 12:30:28 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 149
+abr 23, 2024 12:30:28 AM Log run
+INFORMACIÓN: Ocupación total: 149 de 186, Duración del programa: 24208 ms
+abr 23, 2024 12:30:51 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:30:51 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  40
+abr 23, 2024 12:30:51 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 146
+abr 23, 2024 12:30:51 AM Log run
+INFORMACIÓN: Ocupación total: 146 de 186, Duración del programa: 23639 ms
+abr 23, 2024 12:31:15 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:31:15 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  35
+abr 23, 2024 12:31:15 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 151
+abr 23, 2024 12:31:15 AM Log run
+INFORMACIÓN: Ocupación total: 151 de 186, Duración del programa: 23808 ms
+abr 23, 2024 12:54:12 AM Log run
+INFORMACIÓN: ---------------------ITERACIÓN FINAL---------------------
+abr 23, 2024 12:54:12 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Canceladas:  32
+abr 23, 2024 12:54:12 AM Log run
+INFORMACIÓN: Tamaño final de la lista de Reservas Verificadas: 154
+abr 23, 2024 12:54:12 AM Log run
+INFORMACIÓN: Ocupación total: 154 de 186, Duración del programa: 24308 ms
