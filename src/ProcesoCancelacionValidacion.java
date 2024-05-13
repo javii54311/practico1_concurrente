@@ -70,8 +70,9 @@ public class ProcesoCancelacionValidacion implements Runnable {
         }
     }
     public void run () {
-        while (true) {
+        while (SistemaDeReservas.sigueProcesoDePago || !reservasConfirmadas.isEmpty()) {
             intentarCancelar();
         }
+        SistemaDeReservas.sigueProcesoDeCancelacionValidacion = false;
     }
 }

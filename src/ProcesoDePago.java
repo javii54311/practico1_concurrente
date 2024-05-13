@@ -28,7 +28,7 @@ public class ProcesoDePago implements Runnable{
         while (hayReservasPendientes()) {
             intentarPagar();
         }
-
+        SistemaDeReservas.sigueProcesoDePago = false;
         System.out.println("No hay reservas pendientes para pagar, "+ Thread.currentThread().getName()+" finaliza");
     }
     public void intentarPagar() {

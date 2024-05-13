@@ -12,6 +12,7 @@ public class SistemaDeReservas {
     private ProcesoDePago procesoDePago;
     protected static boolean sigueProcesoDePago;
     private ProcesoCancelacionValidacion procesoDeCancelacionValidacion;
+    protected static boolean sigueProcesoDeCancelacionValidacion;
 
     public SistemaDeReservas() {
         for (int i = 0; i < FILAS; i++) {
@@ -34,5 +35,8 @@ public class SistemaDeReservas {
     }
     public ProcesoDePago getProcesoDePago() {
         return procesoDePago;
+    }
+    public ProcesoCancelacionValidacion getProcesoDeCancelacionValidacion() {
+        return procesoDeCancelacionValidacion;
     }
 }
