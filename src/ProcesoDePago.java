@@ -39,6 +39,11 @@ public class ProcesoDePago implements Runnable{
                 int randomIndex = new Random().nextInt(reservasPendientes.size());
                 reserva = reservasPendientes.get(randomIndex);
             }
+            try {
+                reservasPendientes.notifyAll();
+                reservasPendientes.wait(1);
+            } catch (Exception e) {
+            }
         }
         if(reserva == null){
             return;

@@ -14,6 +14,7 @@ public class SistemaDeReservas {
     protected static boolean sigueProcesoDePago;
     private ProcesoCancelacionValidacion procesoDeCancelacionValidacion;
     protected static boolean sigueProcesoDeCancelacionValidacion;
+    private ProcesoVerificacion procesoDeVerificacion;
 
     public SistemaDeReservas() {
         for (int i = 0; i < FILAS; i++) {
@@ -26,21 +27,34 @@ public class SistemaDeReservas {
         reservasCanceladas = new ArrayList<>();
         reservasVerificadas = new ArrayList<>();
 
-        this.sigueProcesoDePago = true;
+
 
         procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes);
+
         procesoDePago = new ProcesoDePago(asientos, reservasPendientes, reservasConfirmadas, reservasCanceladas);
+        this.sigueProcesoDePago = true;
+
         procesoDeCancelacionValidacion = new ProcesoCancelacionValidacion(reservasConfirmadas, reservasCanceladas);
+        this.sigueProcesoDeCancelacionValidacion = true;
+
+        procesoDeVerificacion = new ProcesoVerificacion(reservasConfirmadas, reservasVerificadas);
     }
 
     public ProcesoDeReserva getProcesoDeReserva() {
+
         return procesoDeReserva;
     }
     public ProcesoDePago getProcesoDePago() {
+
         return procesoDePago;
     }
     public ProcesoCancelacionValidacion getProcesoDeCancelacionValidacion() {
+
         return procesoDeCancelacionValidacion;
+    }
+    public ProcesoVerificacion getProcesoDeVerificacion() {
+
+        return procesoDeVerificacion;
     }
     public ArrayList<Reserva> getReservasPendientes() {
         return reservasPendientes;

@@ -33,48 +33,44 @@ public class ProcesoCancelacionValidacion implements Runnable {
                 } catch (Exception e) {
                 }
             }
-            if (reserva == null) {
-                return;
-            }
+        }
+        if (reserva == null) {
+            return;
+        }
 
-            if (new Random().nextDouble() < 0.1) {
+        if (new Random().nextDouble() < 0.1) {
 
-                reserva.getAsiento().cancelar_validacion();
+            reserva.getAsiento().cancelar_validacion();
 
-                // como quedo resuelto creo que siempre se puede cancelar,
-                // por lo tanto este chequeo puede ser innecesario
-
-
-                synchronized (reservasCanceladas) {
-                    System.out.println("CANCELACION ----------------------");
-                    reservasCanceladas.add(reserva);
-                    try {
-                        reservasCanceladas.notifyAll();
-                        reservasCanceladas.wait(1);
-                    } catch (Exception e) {
-                    }
-                }
-
-            } else {
-                reserva.setCheck(true);
-
-                synchronized (reservasConfirmadas) {
-                    reservasConfirmadas.add(reserva);
-                    try {
-                        reservasConfirmadas.notifyAll();
-                        reservasConfirmadas.wait(1);
-                    } catch (Exception e) {
-                    }
+            synchronized (reservasCanceladas) {
+                reservasCanceladas.add(reserva);
+                try {
+                    reservasCanceladas.notifyAll();
+                    reservasCanceladas.wait(1);
+                } catch (Exception e) {
                 }
             }
 
+        } else {
 
+            reserva.setCheck(true);
+
+            synchronized (reservasConfirmadas) {
+                reservasConfirmadas.add(reserva);
+                try {
+                    reservasConfirmadas.notifyAll();
+                    reservasConfirmadas.wait(1);
+                } catch (Exception e) {
+                }
+            }
         }
     }
-    public void run () {
-        while (SistemaDeReservas.sigueProcesoDePago /*|| !reservasConfirmadas.isEmpty()*/) {
+
+    public void run() {
+        while (SistemaDeReservas.sigueProcesoDePago || !reservasConfirmadas.isEmpty()) {
             intentarCancelar();
         }
         SistemaDeReservas.sigueProcesoDeCancelacionValidacion = false;
     }
 }
+

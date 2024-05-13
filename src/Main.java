@@ -13,6 +13,9 @@ public class Main {
         Thread hilo7 = new Thread(sistema.getProcesoDeCancelacionValidacion());
         Thread hilo8 = new Thread(sistema.getProcesoDeCancelacionValidacion());
 
+        Thread hilo9 = new Thread(sistema.getProcesoDeVerificacion());
+        Thread hilo10 = new Thread(sistema.getProcesoDeVerificacion());
+
         hilo1.start();
         hilo2.start();
         hilo3.start();
@@ -23,6 +26,9 @@ public class Main {
         hilo6.start();
         hilo7.start();
         hilo8.start();
+
+        hilo9.start();
+        hilo10.start();
 
         try {
             hilo1.join();
@@ -35,6 +41,9 @@ public class Main {
             hilo6.join();
             hilo7.join();
             hilo8.join();
+
+            hilo9.join();
+            hilo10.join();
 
         } catch (Exception e) {
             System.out.println("Error en el hilo principal");
