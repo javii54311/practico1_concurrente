@@ -9,7 +9,7 @@ public class Asiento {
 
     public synchronized void descartar() {
         this.estado = EstadoAsiento.DESCARTADO;
-        System.out.println("Asiento descartado por el hilo: " + Thread.currentThread().getName());
+        //System.out.println("Asiento descartado por el hilo: " + Thread.currentThread().getName());
     }
 
     public synchronized boolean reservar() {
@@ -33,7 +33,7 @@ public class Asiento {
     public synchronized boolean confirmar() {
         if(this.reserva.getEstado() == EstadoReserva.PENDIENTE){
             this.reserva.setEstado(EstadoReserva.CONFIRMADA);
-            System.out.println("Asiento confirmado por el hilo: " + Thread.currentThread().getName());
+            //System.out.println("Asiento confirmado por el hilo: " + Thread.currentThread().getName());
             return true;
         }
         else{
@@ -46,7 +46,7 @@ public class Asiento {
         if(this.reserva.getEstado() == EstadoReserva.PENDIENTE){
             this.reserva.setEstado(EstadoReserva.CANCELADA);
             this.estado = EstadoAsiento.DESCARTADO;
-            System.out.println("Asiento cancelado por el hilo: " + Thread.currentThread().getName());
+            //System.out.println("Asiento cancelado por el hilo: " + Thread.currentThread().getName());
             return true;
         }
         else{

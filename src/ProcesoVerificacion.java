@@ -12,6 +12,10 @@ public class ProcesoVerificacion implements Runnable {
     public void intentarVerificar() {
         Reserva reserva = null;
 
+        // confirmadas.isEmpty() ok
+        // no chequeada ok
+        // chequeada
+
         synchronized (reservasConfirmadas) {
             if (reservasConfirmadas.size() > 0) {
                 int randomIndex = new Random().nextInt(reservasConfirmadas.size());
@@ -30,7 +34,7 @@ public class ProcesoVerificacion implements Runnable {
         if (reserva == null) {
             return;
         }
-        if(reserva.getCheck()){
+        else if(reserva.getCheck()){
             synchronized (reservasVerificadas) {
                 reservasVerificadas.add(reserva);
                 try {
@@ -42,9 +46,9 @@ public class ProcesoVerificacion implements Runnable {
         }
     }
     public void run() {
-        while (SistemaDeReservas.sigueProcesoDeCancelacionValidacion) {
+        while (SistemaDeReservas.sigueProcesoDeCancelacionValidacion || !reservasConfirmadas.isEmpty()) {
             intentarVerificar();
         }
-
+        System.out.println("se termina to");
     }
 }
