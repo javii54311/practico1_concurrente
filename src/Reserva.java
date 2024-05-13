@@ -13,7 +13,7 @@ public class Reserva {
     public void setEstado(EstadoReserva estado) {
         this.estado = estado;
     }
-    public boolean isCheck() {
+    public boolean getCheck() {
         return check;
     }
     public void setCheck(boolean check) {

@@ -42,7 +42,7 @@ public class Asiento {
         }
     }
 
-    public synchronized boolean cancelar() {
+    public synchronized boolean cancelar_pago() {
         if(this.reserva.getEstado() == EstadoReserva.PENDIENTE){
             this.reserva.setEstado(EstadoReserva.CANCELADA);
             this.estado = EstadoAsiento.DESCARTADO;
@@ -51,6 +51,17 @@ public class Asiento {
         }
         else{
             System.out.println("No se puede cancelar un asiento que no está ocupado");
+            return false;
+        }
+    }
+
+    public synchronized boolean cancelar_validacion() {
+        if(this.reserva.getEstado() == EstadoReserva.CONFIRMADA && this.estado == EstadoAsiento.OCUPADO){
+            this.reserva.setEstado(EstadoReserva.CANCELADA);
+            this.estado = EstadoAsiento.DESCARTADO;
+            return true;
+        }
+        else{
             return false;
         }
     }

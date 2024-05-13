@@ -28,21 +28,24 @@ public class ProcesoDePago implements Runnable{
         while (hayReservasPendientes()) {
             intentarPagar();
         }
+
         System.out.println("No hay reservas pendientes para pagar, "+ Thread.currentThread().getName()+" finaliza");
     }
     public void intentarPagar() {
-        boolean sePudoConfirmar = false;
-        boolean sePudoCancelar = false;
-        boolean reservasParaPagar = false;
+        Reserva reserva = null;
+
         synchronized(reservasPendientes){
-            reservasParaPagar = reservasPendientes.size()>0;
+            if(reservasPendientes.size()>0){
+                int randomIndex = new Random().nextInt(reservasPendientes.size());
+                reserva = reservasPendientes.get(randomIndex);
+            }
         }
-        if(!reservasParaPagar){
+        if(reserva == null){
             return;
         }
-        
-        int randomIndex = new Random().nextInt(reservasPendientes.size());
-        Reserva reserva = reservasPendientes.get(randomIndex);
+
+        boolean sePudoConfirmar = false;
+        boolean sePudoCancelar = false;
 
         if(new Random().nextDouble() < 0.9){
             System.out.println("Reserva para pagar");
@@ -50,7 +53,7 @@ public class ProcesoDePago implements Runnable{
             System.out.println("Reserva pagada");
         }
         else{
-            sePudoCancelar = reserva.getAsiento().cancelar();
+            sePudoCancelar = reserva.getAsiento().cancelar_pago();
         }
 
         if(sePudoConfirmar || sePudoCancelar){
@@ -88,9 +91,6 @@ public class ProcesoDePago implements Runnable{
             } catch (Exception e) {
             }
         }
-
-
-
     }
 }
 

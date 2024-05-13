@@ -10,6 +10,8 @@ public class SistemaDeReservas {
 
     private ProcesoDeReserva procesoDeReserva;
     private ProcesoDePago procesoDePago;
+    protected static boolean sigueProcesoDePago;
+    private ProcesoCancelacionValidacion procesoDeCancelacionValidacion;
 
     public SistemaDeReservas() {
         for (int i = 0; i < FILAS; i++) {
@@ -20,7 +22,8 @@ public class SistemaDeReservas {
         reservasPendientes = new ArrayList<>();
         reservasConfirmadas = new ArrayList<>();
         reservasCanceladas = new ArrayList<>();
-        
+
+        this.sigueProcesoDePago = true;
 
         procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes);
         procesoDePago = new ProcesoDePago(asientos, reservasPendientes, reservasConfirmadas, reservasCanceladas);
