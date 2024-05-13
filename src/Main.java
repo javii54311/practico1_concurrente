@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
+        long startTime = System.currentTimeMillis();
         SistemaDeReservas sistema = new SistemaDeReservas();
 
         Thread hilo1 = new Thread(sistema.getProcesoDeReserva());
@@ -26,7 +27,9 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error en el hilo principal");
         }
-
+        long endTime = System.currentTimeMillis();
+        long totalTime = endTime - startTime;
+        System.out.println("Tiempo de ejecución: " + totalTime + " milisegundos");
     }
 
 }

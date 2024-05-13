@@ -23,6 +23,7 @@ public class ProcesoDePago implements Runnable{
         }
         return false;
     }
+    
     public void run() {
         System.out.println("Proceso de pago iniciado");
         while (hayReservasPendientes()) {
@@ -31,20 +32,25 @@ public class ProcesoDePago implements Runnable{
         System.out.println("No hay reservas pendientes para pagar, "+ Thread.currentThread().getName()+" finaliza");
     }
     public void intentarPagar() {
+
+        int randomIndex;
+        Reserva reserva;
+
+        // Sección crítica - Necesitamos un bloque sincronizado para acceder a la lista de reservas pendientes y sacar una reserva de ella que exista
+        synchronized(reservasPendientes){
+            if(reservasPendientes.size()>0){
+                randomIndex = new Random().nextInt(reservasPendientes.size());
+                reserva = reservasPendientes.get(randomIndex);
+            }
+            else{
+                return;
+            }
+        }
+
         boolean sePudoConfirmar = false;
         boolean sePudoCancelar = false;
-        boolean reservasParaPagar = false;
-        synchronized(reservasPendientes){
-            reservasParaPagar = reservasPendientes.size()>0;
-        }
-        if(!reservasParaPagar){
-            return;
-        }
-        
-        int randomIndex = new Random().nextInt(reservasPendientes.size());
-        Reserva reserva = reservasPendientes.get(randomIndex);
 
-        if(new Random().nextDouble() < 0.9){
+        if(Math.random() < 0.9){
             System.out.println("Reserva para pagar");
             sePudoConfirmar = reserva.getAsiento().confirmar();
             System.out.println("Reserva pagada");
@@ -84,7 +90,7 @@ public class ProcesoDePago implements Runnable{
                 }
             }
             try {
-                Thread.sleep(1);
+                Thread.sleep(100);
             } catch (Exception e) {
             }
         }

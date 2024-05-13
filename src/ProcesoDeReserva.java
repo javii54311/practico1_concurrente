@@ -25,7 +25,7 @@ public class ProcesoDeReserva implements Runnable{
                 reservasPendientes.add(asientos[filaAleatoria][columnaAleatoria].getReserva());
                 try {
                     reservasPendientes.notifyAll();
-                    reservasPendientes.wait(1);
+                    reservasPendientes.wait(100);
                 } catch (Exception e) {
                     
                 }
