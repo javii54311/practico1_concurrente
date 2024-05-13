@@ -20,6 +20,10 @@ public class Main {
         hilo4.start();
         hilo5.start();
 
+        hilo6.start();
+        hilo7.start();
+        hilo8.start();
+
         try {
             hilo1.join();
             hilo2.join();
@@ -28,12 +32,19 @@ public class Main {
             hilo4.join();
             hilo5.join();
 
-            hilo6.start();
-            hilo7.start();
-            hilo8.start();
+            hilo6.join();
+            hilo7.join();
+            hilo8.join();
+
         } catch (Exception e) {
             System.out.println("Error en el hilo principal");
         }
+
+        System.out.println("Saliendo");
+        System.out.println("Reservas pendientes finales: " + sistema.getReservasPendientes().size());
+        System.out.println("Reservas confirmadas finales: " + sistema.getReservasConfirmadas().size());
+        System.out.println("Reservas canceladas finales: " + sistema.getReservasCanceladas().size());
+        System.out.println("Reservas verificadas finales: " + sistema.getReservasVerificadas().size());
 
     }
 

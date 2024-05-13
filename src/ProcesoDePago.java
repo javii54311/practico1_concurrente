@@ -48,9 +48,9 @@ public class ProcesoDePago implements Runnable{
         boolean sePudoCancelar = false;
 
         if(new Random().nextDouble() < 0.9){
-            System.out.println("Reserva para pagar");
+            //System.out.println("Reserva para pagar");
             sePudoConfirmar = reserva.getAsiento().confirmar();
-            System.out.println("Reserva pagada");
+            //System.out.println("Reserva pagada");
         }
         else{
             sePudoCancelar = reserva.getAsiento().cancelar_pago();
@@ -75,6 +75,7 @@ public class ProcesoDePago implements Runnable{
                     } catch (Exception e) {
                     }
                 }
+            }
             if(sePudoCancelar){
                 synchronized (reservasCanceladas){
                     reservasCanceladas.add(reserva);
@@ -82,9 +83,9 @@ public class ProcesoDePago implements Runnable{
                             reservasCanceladas.notifyAll();
                             reservasCanceladas.wait(1);
                         } catch (Exception e) {
-                    }
-                    }
+                        }
                 }
+            }
             }
             try {
                 Thread.sleep(1);
@@ -92,5 +93,5 @@ public class ProcesoDePago implements Runnable{
             }
         }
     }
-}
+
 

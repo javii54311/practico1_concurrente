@@ -5,7 +5,7 @@ public class ProcesoCancelacionValidacion implements Runnable {
     private ArrayList<Reserva> reservasConfirmadas;
     private ArrayList<Reserva> reservasCanceladas;
 
-    public ProcesoCancelacionValidacion(ArrayList<Reserva> reservasPendientes, ArrayList<Reserva> reservasConfirmadas, ArrayList<Reserva> reservasCanceladas) {
+    public ProcesoCancelacionValidacion(ArrayList<Reserva> reservasConfirmadas, ArrayList<Reserva> reservasCanceladas) {
         this.reservasConfirmadas = reservasConfirmadas;
         this.reservasCanceladas = reservasCanceladas;
     }
@@ -38,21 +38,23 @@ public class ProcesoCancelacionValidacion implements Runnable {
             }
 
             if (new Random().nextDouble() < 0.1) {
-                boolean sePudoCancelar = reserva.getAsiento().cancelar_validacion();
+
+                reserva.getAsiento().cancelar_validacion();
 
                 // como quedo resuelto creo que siempre se puede cancelar,
                 // por lo tanto este chequeo puede ser innecesario
 
-                if (sePudoCancelar) {
-                    synchronized (reservasCanceladas) {
-                        reservasCanceladas.add(reserva);
-                        try {
-                            reservasCanceladas.notifyAll();
-                            reservasCanceladas.wait(1);
-                        } catch (Exception e) {
-                        }
+
+                synchronized (reservasCanceladas) {
+                    System.out.println("CANCELACION ----------------------");
+                    reservasCanceladas.add(reserva);
+                    try {
+                        reservasCanceladas.notifyAll();
+                        reservasCanceladas.wait(1);
+                    } catch (Exception e) {
                     }
                 }
+
             } else {
                 reserva.setCheck(true);
 
@@ -70,7 +72,7 @@ public class ProcesoCancelacionValidacion implements Runnable {
         }
     }
     public void run () {
-        while (SistemaDeReservas.sigueProcesoDePago || !reservasConfirmadas.isEmpty()) {
+        while (SistemaDeReservas.sigueProcesoDePago /*|| !reservasConfirmadas.isEmpty()*/) {
             intentarCancelar();
         }
         SistemaDeReservas.sigueProcesoDeCancelacionValidacion = false;

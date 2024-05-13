@@ -7,6 +7,7 @@ public class SistemaDeReservas {
     private ArrayList<Reserva> reservasPendientes;
     private ArrayList<Reserva> reservasConfirmadas;
     private ArrayList<Reserva> reservasCanceladas;
+    private ArrayList<Reserva> reservasVerificadas;
 
     private ProcesoDeReserva procesoDeReserva;
     private ProcesoDePago procesoDePago;
@@ -23,11 +24,13 @@ public class SistemaDeReservas {
         reservasPendientes = new ArrayList<>();
         reservasConfirmadas = new ArrayList<>();
         reservasCanceladas = new ArrayList<>();
+        reservasVerificadas = new ArrayList<>();
 
         this.sigueProcesoDePago = true;
 
         procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes);
         procesoDePago = new ProcesoDePago(asientos, reservasPendientes, reservasConfirmadas, reservasCanceladas);
+        procesoDeCancelacionValidacion = new ProcesoCancelacionValidacion(reservasConfirmadas, reservasCanceladas);
     }
 
     public ProcesoDeReserva getProcesoDeReserva() {
@@ -38,5 +41,17 @@ public class SistemaDeReservas {
     }
     public ProcesoCancelacionValidacion getProcesoDeCancelacionValidacion() {
         return procesoDeCancelacionValidacion;
+    }
+    public ArrayList<Reserva> getReservasPendientes() {
+        return reservasPendientes;
+    }
+    public ArrayList<Reserva> getReservasConfirmadas() {
+        return reservasConfirmadas;
+    }
+    public ArrayList<Reserva> getReservasCanceladas() {
+        return reservasCanceladas;
+    }
+    public ArrayList<Reserva> getReservasVerificadas() {
+        return reservasVerificadas;
     }
 }

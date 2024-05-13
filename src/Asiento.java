@@ -37,7 +37,7 @@ public class Asiento {
             return true;
         }
         else{
-            System.out.println("No se puede confirmar un asiento que no está ocupado");
+            //System.out.println("No se puede confirmar un asiento que no está ocupado");
             return false;
         }
     }
@@ -55,15 +55,9 @@ public class Asiento {
         }
     }
 
-    public synchronized boolean cancelar_validacion() {
-        if(this.reserva.getEstado() == EstadoReserva.CONFIRMADA && this.estado == EstadoAsiento.OCUPADO){
-            this.reserva.setEstado(EstadoReserva.CANCELADA);
-            this.estado = EstadoAsiento.DESCARTADO;
-            return true;
-        }
-        else{
-            return false;
-        }
+    public synchronized void cancelar_validacion() {
+        this.reserva.setEstado(EstadoReserva.CANCELADA);
+        this.estado = EstadoAsiento.DESCARTADO;
     }
 
     public Reserva getReserva() {
