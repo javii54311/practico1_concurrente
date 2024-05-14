@@ -2,34 +2,31 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class ProcesoDePago implements Runnable{
-    private Asiento asientos[][];
     private ArrayList<Reserva> reservasPendientes;
     private ArrayList<Reserva> reservasConfirmadas;
     private ArrayList<Reserva> reservasCanceladas;
 
-    public ProcesoDePago(Asiento asientos[][], ArrayList<Reserva> reservasPendientes, ArrayList<Reserva> reservasConfirmadas, ArrayList<Reserva> reservasCanceladas) {
-        this.asientos = asientos;
+    public ProcesoDePago(ArrayList<Reserva> reservasPendientes, ArrayList<Reserva> reservasConfirmadas, ArrayList<Reserva> reservasCanceladas) {
         this.reservasPendientes = reservasPendientes;
         this.reservasConfirmadas = reservasConfirmadas;
         this.reservasCanceladas = reservasCanceladas;
     }
-    public boolean hayReservasPendientes() {
-        for (int i = 0; i < SistemaDeReservas.FILAS; i++) {
-            for (int j = 0; j < SistemaDeReservas.COLUMNAS; j++) {
-                if(asientos[i][j].getReserva().getEstado() == EstadoReserva.NONATA || asientos[i][j].getReserva().getEstado() == EstadoReserva.PENDIENTE){
-                    return true;
-                }
-            }
+    public boolean hayReservasParaPagar() {
+        if(SistemaDeReservas.hilosReservando.get()==0 && reservasPendientes.size()==0){
+            return false;
+            
         }
-        return false;
+        return true;
     }
     
     public void run() {
+        SistemaDeReservas.hilosPagando.incrementAndGet();
         System.out.println("Proceso de pago iniciado");
-        while (hayReservasPendientes()) {
+        while (hayReservasParaPagar()) {
             intentarPagar();
         }
         System.out.println("No hay reservas pendientes para pagar, "+ Thread.currentThread().getName()+" finaliza");
+        SistemaDeReservas.hilosPagando.decrementAndGet();
     }
     public void intentarPagar() {
 
@@ -78,6 +75,7 @@ public class ProcesoDePago implements Runnable{
                     } catch (Exception e) {
                     }
                 }
+            }
             if(sePudoCancelar){
                 synchronized (reservasCanceladas){
                     reservasCanceladas.add(reserva);
@@ -88,7 +86,7 @@ public class ProcesoDePago implements Runnable{
                     }
                     }
                 }
-            }
+            
             try {
                 Thread.sleep(100);
             } catch (Exception e) {

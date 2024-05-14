@@ -8,12 +8,15 @@ public class ProcesoDeReserva implements Runnable{
     public ProcesoDeReserva(Asiento asientos[][], ArrayList<Reserva> reservasPendientes) {
         this.asientos = asientos;
         this.reservasPendientes = reservasPendientes;
+        
     }
     public void run() {
-       while (hayAsientosLibres()) {
+        SistemaDeReservas.hilosReservando.incrementAndGet();
+        while (hayAsientosLibres()) {
             intentarReservar();
-       }
-       System.out.println("No hay asientos libres, "+ Thread.currentThread().getName()+" finaliza");
+        }
+        System.out.println("No hay asientos libres, "+ Thread.currentThread().getName()+" finaliza");
+        SistemaDeReservas.hilosReservando.decrementAndGet();
     }
     public void intentarReservar() {
         Random random = new Random();

@@ -10,11 +10,13 @@ public class ProcesoDeCheckin implements Runnable{
         this.reservasCanceladas = reservasCanceladas;
     }
     public void run() {
+        SistemaDeReservas.hilosCheckin.incrementAndGet();
         System.out.println("Proceso de checkin iniciado");
         while (hayAsientosParaCheckin()){
             intentarCheckin();
         }
         System.out.println("No hay reservas confirmadas para hacer checkin, "+ Thread.currentThread().getName()+" finaliza");
+        SistemaDeReservas.hilosCheckin.decrementAndGet();
     }
     public void intentarCheckin() {
         int randomIndex;
@@ -74,12 +76,11 @@ public class ProcesoDeCheckin implements Runnable{
             }
         }
     }
+    
     public boolean hayAsientosParaCheckin() {
-        boolean flag = false;
-        
-
-
-
-        return reservasConfirmadas.size() > 0;
+        if(reservasConfirmadas.size()==0 && SistemaDeReservas.hilosPagando.get()==0){
+            return false;
+        }
+        return true;
     }
 }

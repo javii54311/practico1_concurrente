@@ -79,6 +79,17 @@ public class Asiento {
             return false;
         }
     }
+    public synchronized boolean verificar() {
+        if(this.reserva.getEstado() == EstadoReserva.CONFIRMADA && this.reserva.isCheck() == true){
+            this.reserva.setEstado(EstadoReserva.VERIFICADA);
+            System.out.println("Asiento verificado por el hilo: " + Thread.currentThread().getName());
+            return true;
+        }
+        else{
+            System.out.println("No se puede verificar un asiento que no está confirmado");
+            return false;
+        }
+    }
 
     public Reserva getReserva() {
         return reserva;
