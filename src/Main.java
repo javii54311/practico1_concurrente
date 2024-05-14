@@ -58,21 +58,22 @@ public class Main {
         sistema.diagnosticarFinal();
     };
     public static void main(String[] args) {
+        //config
         int nHilosReserva = 3;
-        int sleepReserva = 1;
-        int waitReserva = 1;
+        int sleepReserva = 1; //ms
+        int waitReserva = 1; //ms
 
         int nHilosPago = 2;
-        int sleepPago = 1;
-        int waitPago = 1;
+        int sleepPago = 1; //ms
+        int waitPago = 1; //ms
 
         int nHilosCheckin = 3;
-        int sleepCheckin = 1;
-        int waitCheckin = 1;
+        int sleepCheckin = 1; //ms
+        int waitCheckin = 1; //ms
 
         int nHilosVerificacion = 2;
-        int sleepVerificacion = 1;
-        int waitVerificacion = 1;
+        int sleepVerificacion = 1; //ms
+        int waitVerificacion = 1; //ms
 
         SistemaDeReservas sistema = new SistemaDeReservas(sleepReserva, sleepPago, sleepCheckin, sleepVerificacion, waitReserva, waitPago, waitCheckin, waitVerificacion);
         ejecutar(sistema, nHilosReserva, nHilosPago, nHilosCheckin, nHilosVerificacion);
