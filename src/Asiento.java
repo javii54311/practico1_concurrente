@@ -17,11 +17,6 @@ public class Asiento {
             this.estado = EstadoAsiento.OCUPADO;
             this.reserva.setEstado(EstadoReserva.PENDIENTE);
             //System.out.println("Asiento reservado por el hilo: " + Thread.currentThread().getName());
-            try {
-                Thread.sleep(50);
-            } catch (Exception e) {
-                
-            }
             return true;
         }
         else{
