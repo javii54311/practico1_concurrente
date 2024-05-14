@@ -41,7 +41,7 @@ public class ProcesoDeVerificacion implements Runnable{
                 reservasConfirmadas.remove(reserva);
                 try {
                     reservasConfirmadas.notifyAll();
-                    reservasConfirmadas.wait(1);
+                    reservasConfirmadas.wait(SistemaDeReservas.waitReserva);
                 } catch (Exception e) {
                     
                 }
@@ -50,10 +50,15 @@ public class ProcesoDeVerificacion implements Runnable{
                 reservasVerificadas.add(reserva);
                 try {
                     reservasVerificadas.notifyAll();
-                    reservasVerificadas.wait(1);
+                    reservasVerificadas.wait(SistemaDeReservas.waitReserva);
                 } catch (Exception e) {
                     
                 }
+            }
+            try {
+                Thread.sleep(SistemaDeReservas.sleepVerificacion);
+            } catch (Exception e) {
+                
             }
         }
         else{

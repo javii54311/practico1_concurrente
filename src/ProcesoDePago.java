@@ -61,7 +61,7 @@ public class ProcesoDePago implements Runnable{
                 reservasPendientes.remove(reserva);
                     try {
                         reservasPendientes.notifyAll();
-                        reservasPendientes.wait(1);
+                        reservasPendientes.wait(SistemaDeReservas.waitPago);
                     } catch (Exception e) {
                 }
             }
@@ -71,7 +71,7 @@ public class ProcesoDePago implements Runnable{
                 
                     try {
                         reservasConfirmadas.notifyAll();
-                        reservasConfirmadas.wait(1);
+                        reservasConfirmadas.wait(SistemaDeReservas.waitPago);
                     } catch (Exception e) {
                     }
                 }
@@ -81,14 +81,14 @@ public class ProcesoDePago implements Runnable{
                     reservasCanceladas.add(reserva);
                         try {
                             reservasCanceladas.notifyAll();
-                            reservasCanceladas.wait(1);
+                            reservasCanceladas.wait(SistemaDeReservas.waitPago);
                         } catch (Exception e) {
                     }
                     }
                 }
             
             try {
-                Thread.sleep(100);
+                Thread.sleep(SistemaDeReservas.sleepPago);
             } catch (Exception e) {
             }
         }

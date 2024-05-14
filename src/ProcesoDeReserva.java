@@ -28,13 +28,13 @@ public class ProcesoDeReserva implements Runnable{
                 reservasPendientes.add(asientos[filaAleatoria][columnaAleatoria].getReserva());
                 try {
                     reservasPendientes.notifyAll();
-                    reservasPendientes.wait(100);
+                    reservasPendientes.wait(SistemaDeReservas.waitReserva);
                 } catch (Exception e) {
                     
                 }
             }
             try {
-                Thread.sleep(1);
+                Thread.sleep(SistemaDeReservas.sleepReserva);
             } catch (Exception e) {
                 
             }

@@ -1,49 +1,53 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void ejecutar(SistemaDeReservas sistema, int nHilosReserva, int nHilosPago, int nHilosCheckin, int nHilosVerificacion){
         long startTime = System.currentTimeMillis();
-        SistemaDeReservas sistema = new SistemaDeReservas();
 
-        Thread hilo1 = new Thread(sistema.getProcesoDeReserva());
-        Thread hilo2 = new Thread(sistema.getProcesoDeReserva());
-        Thread hilo3 = new Thread(sistema.getProcesoDeReserva());
+        Thread[] hilosReserva = new Thread[nHilosReserva];
+        Thread[] hilosPago = new Thread[nHilosPago];
+        Thread[] hilosCheckin = new Thread[nHilosCheckin];
+        Thread[] hilosVerificacion = new Thread[nHilosVerificacion];
 
-        Thread hilo4 = new Thread(sistema.getProcesoDePago());
-        Thread hilo5 = new Thread(sistema.getProcesoDePago());
+        for (int i = 0; i < hilosReserva.length; i++) {
+            hilosReserva[i] = new Thread(sistema.getProcesoDeReserva());
+            hilosReserva[i].start();
+        }
 
-        Thread hilo6 = new Thread(sistema.getProcesoDeCheckin());
-        Thread hilo7 = new Thread(sistema.getProcesoDeCheckin());
-        Thread hilo8 = new Thread(sistema.getProcesoDeCheckin());
+        for (int i = 0; i < hilosPago.length; i++) {
+            hilosPago[i] = new Thread(sistema.getProcesoDePago());
+            hilosPago[i].start();
+        }
 
-        Thread hilo9 = new Thread(sistema.getProcesoDeVerificacion());
-        Thread hilo10 = new Thread(sistema.getProcesoDeVerificacion());
+        for (int i = 0; i < hilosCheckin.length; i++) {
+            hilosCheckin[i] = new Thread(sistema.getProcesoDeCheckin());
+            hilosCheckin[i].start();
+        }
 
-        hilo1.start();
-        hilo2.start();
-        hilo3.start();
+        for (int i = 0; i < hilosVerificacion.length; i++) {
+            hilosVerificacion[i] = new Thread(sistema.getProcesoDeVerificacion());
+            hilosVerificacion[i].start();
+        }
 
-        hilo4.start();
-        hilo5.start();
+        Thread log = new Thread(sistema.getLog());
+        log.start();
 
-        hilo6.start();
-        hilo7.start();
-        hilo8.start();
-
-        hilo9.start();
-        hilo10.start();
         try {
-            hilo1.join();
-            hilo2.join();
-            hilo3.join();
+            for (Thread hilo : hilosReserva) {
+                hilo.join();
+            }
 
-            hilo4.join();
-            hilo5.join();
+            for (Thread hilo : hilosPago) {
+                hilo.join();
+            }
 
-            hilo6.join();
-            hilo7.join();
-            hilo8.join();
+            for (Thread hilo : hilosCheckin) {
+                hilo.join();
+            }
 
-            hilo9.join();
-            hilo10.join();
+            for (Thread hilo : hilosVerificacion) {
+                hilo.join();
+            }
+
+            log.join();
         } catch (Exception e) {
             System.out.println("Error en el hilo principal");
         }
@@ -52,6 +56,25 @@ public class Main {
         System.out.println("Tiempo de ejecución: " + totalTime + " milisegundos");
         sistema.mostrarEstadoAsientos();
         sistema.diagnosticarFinal();
-    }
+    };
+    public static void main(String[] args) {
+        int nHilosReserva = 3;
+        int sleepReserva = 1;
+        int waitReserva = 1;
 
+        int nHilosPago = 2;
+        int sleepPago = 1;
+        int waitPago = 1;
+
+        int nHilosCheckin = 3;
+        int sleepCheckin = 1;
+        int waitCheckin = 1;
+
+        int nHilosVerificacion = 2;
+        int sleepVerificacion = 1;
+        int waitVerificacion = 1;
+
+        SistemaDeReservas sistema = new SistemaDeReservas(sleepReserva, sleepPago, sleepCheckin, sleepVerificacion, waitReserva, waitPago, waitCheckin, waitVerificacion);
+        ejecutar(sistema, nHilosReserva, nHilosPago, nHilosCheckin, nHilosVerificacion);
+    }
 }

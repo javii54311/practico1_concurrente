@@ -52,7 +52,7 @@ public class ProcesoDeCheckin implements Runnable{
                 reservasConfirmadas.remove(reserva);
                 try {
                     reservasConfirmadas.notifyAll();
-                    reservasConfirmadas.wait(1);
+                    reservasConfirmadas.wait(SistemaDeReservas.waitCheckin);
                 } catch (Exception e) {
                     
                 }
@@ -61,7 +61,7 @@ public class ProcesoDeCheckin implements Runnable{
             reservasCanceladas.add(reserva);
             try {
                 reservasCanceladas.notifyAll();
-                reservasCanceladas.wait(1);
+                reservasCanceladas.wait(SistemaDeReservas.waitCheckin);
             } catch (Exception e) {
                 
             }
@@ -70,7 +70,7 @@ public class ProcesoDeCheckin implements Runnable{
         }
         if(seCancelo||seChequeo){
             try {
-                Thread.sleep(100);
+                Thread.sleep(SistemaDeReservas.sleepCheckin);
             } catch (Exception e) {
                 
             }

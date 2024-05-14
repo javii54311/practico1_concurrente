@@ -14,15 +14,24 @@ public class SistemaDeReservas {
     private ProcesoDePago procesoDePago;
     private ProcesoDeCheckin procesoDeCheckin;
     private ProcesoDeVerificacion procesoDeVerificacion;
+    private Log log;
 
     protected static AtomicInteger hilosReservando;
     protected static AtomicInteger hilosPagando;
     protected static AtomicInteger hilosCheckin;
     protected static AtomicInteger hilosVerificando;
 
+    protected static int sleepReserva;
+    protected static int sleepPago;
+    protected static int sleepCheckin;
+    protected static int sleepVerificacion;
 
+    protected static int waitReserva;
+    protected static int waitPago;
+    protected static int waitCheckin;
+    protected static int waitVerificacion;
 
-    public SistemaDeReservas() {
+    public SistemaDeReservas(int sleepReserva,int sleepPago,int sleepCheckin,int sleepVerificacion,int waitReserva,int waitPago,int waitCheckin,int waitVerificacion) {
         for (int i = 0; i < FILAS; i++) {
             for (int j = 0; j < COLUMNAS; j++) {
                 asientos[i][j] = new Asiento();
@@ -38,10 +47,20 @@ public class SistemaDeReservas {
         hilosCheckin = new AtomicInteger(0);
         hilosVerificando = new AtomicInteger(0);
 
+        SistemaDeReservas.sleepReserva = sleepReserva;
+        SistemaDeReservas.sleepPago = sleepPago;
+        SistemaDeReservas.sleepCheckin = sleepCheckin;
+        SistemaDeReservas.sleepVerificacion = sleepVerificacion;
+        SistemaDeReservas.waitReserva = waitReserva;
+        SistemaDeReservas.waitPago = waitPago;
+        SistemaDeReservas.waitCheckin = waitCheckin;
+        SistemaDeReservas.waitVerificacion = waitVerificacion;
+
         procesoDeReserva = new ProcesoDeReserva(asientos, reservasPendientes);
         procesoDePago = new ProcesoDePago(reservasPendientes, reservasConfirmadas, reservasCanceladas);
         procesoDeCheckin = new ProcesoDeCheckin(reservasConfirmadas, reservasCanceladas);
         procesoDeVerificacion = new ProcesoDeVerificacion(reservasConfirmadas, reservasVerificadas);
+        log = new Log(reservasCanceladas, reservasVerificadas);
     }
 
     public ProcesoDeReserva getProcesoDeReserva() {
@@ -118,6 +137,8 @@ public class SistemaDeReservas {
 
         }
 
+        boolean flag2 = (reservasPendientes.size() + reservasConfirmadas.size())== 0;
+        System.out.println("No hay reservas pendientes ni confirmadas? " + flag2);
     }
 
     public ProcesoDeCheckin getProcesoDeCheckin() {
@@ -126,6 +147,9 @@ public class SistemaDeReservas {
 
     public ProcesoDeVerificacion getProcesoDeVerificacion() {
         return procesoDeVerificacion;
+    }
+    public Log getLog() {
+        return log;
     }
 }
 
