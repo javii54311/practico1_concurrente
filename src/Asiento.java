@@ -55,6 +55,31 @@ public class Asiento {
         }
     }
 
+    public synchronized boolean checkin() {
+        if(this.reserva.getEstado() == EstadoReserva.CONFIRMADA){
+            this.reserva.setCheck(true);
+            System.out.println("Asiento checkin por el hilo: " + Thread.currentThread().getName());
+            return true;
+        }
+        else{
+            System.out.println("No se puede hacer checkin a un asiento que no está confirmado");
+            return false;
+        }
+    }
+
+    public synchronized boolean failedCheckin() {
+        if(this.reserva.getEstado() == EstadoReserva.CONFIRMADA){
+            this.reserva.setEstado(EstadoReserva.CANCELADA);
+            this.estado = EstadoAsiento.DESCARTADO;
+            System.out.println("Asiento checkin fallido por el hilo: " + Thread.currentThread().getName());
+            return true;
+        }
+        else{
+            System.out.println("No se puede fallar checkin a un asiento que no está confirmado");
+            return false;
+        }
+    }
+
     public Reserva getReserva() {
         return reserva;
     }
@@ -63,8 +88,22 @@ public class Asiento {
         return estado;
     }
 
+    public String toString() {
+        switch (estado) {
+            case LIBRE:
+                return (String)"L";
+            case OCUPADO:
+                return (String)"O";
+            case DESCARTADO:
+                return (String)"D";
+            default:
+                return (String)"";
+        }
+    }
+
 }
 
 enum EstadoAsiento {
     LIBRE, OCUPADO, DESCARTADO
 }
+

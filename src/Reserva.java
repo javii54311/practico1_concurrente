@@ -25,6 +25,23 @@ public class Reserva {
     public void setAsiento(Asiento asiento) {
         this.asiento = asiento;
     }
+    public String toString() {
+        switch (estado) {
+            case NONATA:
+                return "N";
+            case PENDIENTE:
+                return "P";
+            case CONFIRMADA:
+                return "C";
+            case CANCELADA:
+                return "X";
+            case VERIFICADA:
+                return "V";
+        
+            default:
+                return "";
+    }
+    }
 }
 
 enum EstadoReserva {
