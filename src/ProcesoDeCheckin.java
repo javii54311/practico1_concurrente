@@ -31,10 +31,20 @@ public class ProcesoDeCheckin implements Runnable{
                 reserva = reservasConfirmadas.get(randomIndex);
                 if (reserva.isCheck() == true)
                 {   //si ya estaba chequeada, vuelve a intentar
+                    try {
+                        reservasConfirmadas.notifyAll();
+                        reservasConfirmadas.wait(SistemaDeReservas.waitCheckin);
+                    } catch (Exception e) {
+                    }
                     return;
                 }
             }
             else{
+                try {
+                    reservasConfirmadas.notifyAll();
+                    reservasConfirmadas.wait(SistemaDeReservas.waitCheckin);
+                } catch (Exception e) {
+                }
                 return;
             }
         }

@@ -24,10 +24,23 @@ public class ProcesoDeVerificacion implements Runnable{
             if(reservasConfirmadas.size()>0){
                 randomIndex = new Random().nextInt(reservasConfirmadas.size());
                 reserva = reservasConfirmadas.get(randomIndex);
+                try {
+                    reservasConfirmadas.notifyAll();
+                    reservasConfirmadas.wait(SistemaDeReservas.waitReserva);
+                } catch (Exception e) {
+                    
+                }
             }
             else{
+                try {
+                    reservasConfirmadas.notifyAll();
+                    reservasConfirmadas.wait(SistemaDeReservas.waitReserva);
+                } catch (Exception e) {
+                    
+                }
                 return;
             }
+
         }
         boolean seVerifico = false;
         if(reserva.isCheck() == false)
