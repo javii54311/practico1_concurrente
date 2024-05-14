@@ -60,20 +60,20 @@ public class Main {
     public static void main(String[] args) {
         //config
         int nHilosReserva = 3;
-        int sleepReserva = 1; //ms
-        int waitReserva = 1; //ms
+        long sleepReserva = 1; //ms
+        long waitReserva = 1; //ms
 
         int nHilosPago = 2;
-        int sleepPago = 1; //ms
-        int waitPago = 1; //ms
+        long sleepPago = 1; //ms
+        long waitPago = 1; //ms
 
         int nHilosCheckin = 3;
-        int sleepCheckin = 1; //ms
-        int waitCheckin = 1; //ms
+        long sleepCheckin = 1; //ms
+        long waitCheckin = 1; //ms
 
         int nHilosVerificacion = 2;
-        int sleepVerificacion = 1; //ms
-        int waitVerificacion = 1; //ms
+        long sleepVerificacion = 1; //ms
+        long waitVerificacion = 1; //ms
 
         SistemaDeReservas sistema = new SistemaDeReservas(sleepReserva, sleepPago, sleepCheckin, sleepVerificacion, waitReserva, waitPago, waitCheckin, waitVerificacion);
         ejecutar(sistema, nHilosReserva, nHilosPago, nHilosCheckin, nHilosVerificacion);

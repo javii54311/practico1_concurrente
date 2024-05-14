@@ -21,17 +21,17 @@ public class SistemaDeReservas {
     protected static AtomicInteger hilosCheckin;
     protected static AtomicInteger hilosVerificando;
 
-    protected static int sleepReserva;
-    protected static int sleepPago;
-    protected static int sleepCheckin;
-    protected static int sleepVerificacion;
+    protected static long sleepReserva;
+    protected static long sleepPago;
+    protected static long sleepCheckin;
+    protected static long sleepVerificacion;
 
-    protected static int waitReserva;
-    protected static int waitPago;
-    protected static int waitCheckin;
-    protected static int waitVerificacion;
+    protected static long waitReserva;
+    protected static long waitPago;
+    protected static long waitCheckin;
+    protected static long waitVerificacion;
 
-    public SistemaDeReservas(int sleepReserva,int sleepPago,int sleepCheckin,int sleepVerificacion,int waitReserva,int waitPago,int waitCheckin,int waitVerificacion) {
+    public SistemaDeReservas(long sleepReserva,long sleepPago,long sleepCheckin,long sleepVerificacion,long waitReserva,long waitPago,long waitCheckin,long waitVerificacion) {
         for (int i = 0; i < FILAS; i++) {
             for (int j = 0; j < COLUMNAS; j++) {
                 asientos[i][j] = new Asiento();
