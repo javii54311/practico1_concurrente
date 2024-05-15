@@ -33,7 +33,7 @@ public class ProcesoDePago implements Runnable{
         int randomIndex;
         Reserva reserva;
 
-        // Sección crítica - Necesitamos un bloque sincronizado para acceder a la lista de reservas pendientes y sacar una reserva de ella que exista
+        //sincroniza para que randomIndex siempre sea un índice válido
         synchronized(reservasPendientes){
             if(reservasPendientes.size()>0){
                 randomIndex = new Random().nextInt(reservasPendientes.size());

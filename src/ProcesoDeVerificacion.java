@@ -20,6 +20,7 @@ public class ProcesoDeVerificacion implements Runnable{
     public void intentarVerificar() {
         int randomIndex;
         Reserva reserva;
+        //sincroniza para que randomIndex siempre sea un índice válido
         synchronized(reservasConfirmadas){
             if(reservasConfirmadas.size()>0){
                 randomIndex = new Random().nextInt(reservasConfirmadas.size());

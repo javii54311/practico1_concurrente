@@ -82,7 +82,7 @@ public class SistemaDeReservas {
             System.out.println();
         }
     }
-    public void diagnosticarFinal() {
+    public boolean diagnosticarFinal() {
         System.out.println("Diagnóstico final del sistema de reservas");
         boolean flag1 = (reservasCanceladas.size() + reservasVerificadas.size())== (FILAS*COLUMNAS);
         System.out.println("Se procesaron todas (verficadas o canceladas)? " + flag1);
@@ -139,6 +139,8 @@ public class SistemaDeReservas {
 
         boolean flag2 = (reservasPendientes.size() + reservasConfirmadas.size())== 0;
         System.out.println("No hay reservas pendientes ni confirmadas? " + flag2);
+        if(flag1&&flag2){return true;}
+        return false;
     }
 
     public ProcesoDeCheckin getProcesoDeCheckin() {

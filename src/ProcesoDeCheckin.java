@@ -25,6 +25,7 @@ public class ProcesoDeCheckin implements Runnable{
         // Sección crítica - Necesitamos un bloque sincronizado para acceder a la lista de reservas confirmadas y sacar una reserva de ella que exista
         // revisar esto. No se excluyen todos los asientos. Virtualmente no están haciendo nada este synchronized
         
+        //sincroniza para que randomIndex siempre sea un índice válido
         synchronized(reservasConfirmadas){
             if(reservasConfirmadas.size()>0){
                 randomIndex = new Random().nextInt(reservasConfirmadas.size());
