@@ -40,9 +40,10 @@ public class Log implements Runnable {
             }
         }
 
-
+                logger.info("-----------------------FINAL LOG ITERATION-------------------------------------------");
                 logger.info("Tamaño final de la lista de Reservas Canceladas:  " + reservasCanceladas.size());
                 logger.info("Tamaño final de la lista de Reservas Verificadas: " + reservasVerificadas.size());
+                logger.info("-------------------------------------------------------------------------------------");
 
 
         int capacidad = reservasCanceladas.size() + reservasVerificadas.size();

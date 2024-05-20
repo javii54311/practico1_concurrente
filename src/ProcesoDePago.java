@@ -14,7 +14,6 @@ public class ProcesoDePago implements Runnable{
     public boolean hayReservasParaPagar() {
         if(SistemaDeReservas.hilosReservando.get()==0 && reservasPendientes.size()==0){
             return false;
-            
         }
         return true;
     }

@@ -7,11 +7,6 @@ public class Asiento {
     }
 
 
-    public synchronized void descartar() {
-        this.estado = EstadoAsiento.DESCARTADO;
-        System.out.println("Asiento descartado por el hilo: " + Thread.currentThread().getName());
-    }
-
     public synchronized boolean reservar() {
         if(this.estado == EstadoAsiento.LIBRE){
             this.estado = EstadoAsiento.OCUPADO;

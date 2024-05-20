@@ -27,7 +27,7 @@ public class ProcesoDeVerificacion implements Runnable{
                 reserva = reservasConfirmadas.get(randomIndex);
                 try {
                     reservasConfirmadas.notifyAll();
-                    reservasConfirmadas.wait(SistemaDeReservas.waitReserva);
+                    reservasConfirmadas.wait(SistemaDeReservas.waitVerificacion);
                 } catch (Exception e) {
                     
                 }
@@ -35,7 +35,7 @@ public class ProcesoDeVerificacion implements Runnable{
             else{
                 try {
                     reservasConfirmadas.notifyAll();
-                    reservasConfirmadas.wait(SistemaDeReservas.waitReserva);
+                    reservasConfirmadas.wait(SistemaDeReservas.waitVerificacion);
                 } catch (Exception e) {
                     
                 }
@@ -43,19 +43,20 @@ public class ProcesoDeVerificacion implements Runnable{
             }
 
         }
-        boolean seVerifico = false;
+
         if(reserva.isCheck() == false)
         {   //si aun no está chequeada no se puede verificar
             return;
         }
-        seVerifico = reserva.getAsiento().verificar();
+
+        boolean seVerifico = reserva.getAsiento().verificar();
         
         if(seVerifico){
             synchronized(reservasConfirmadas){
                 reservasConfirmadas.remove(reserva);
                 try {
                     reservasConfirmadas.notifyAll();
-                    reservasConfirmadas.wait(SistemaDeReservas.waitReserva);
+                    reservasConfirmadas.wait(SistemaDeReservas.waitVerificacion);
                 } catch (Exception e) {
                     
                 }
@@ -64,7 +65,7 @@ public class ProcesoDeVerificacion implements Runnable{
                 reservasVerificadas.add(reserva);
                 try {
                     reservasVerificadas.notifyAll();
-                    reservasVerificadas.wait(SistemaDeReservas.waitReserva);
+                    reservasVerificadas.wait(SistemaDeReservas.waitVerificacion);
                 } catch (Exception e) {
                     
                 }
