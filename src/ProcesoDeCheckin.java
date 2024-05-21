@@ -11,11 +11,11 @@ public class ProcesoDeCheckin implements Runnable{
     }
     public void run() {
         SistemaDeReservas.hilosCheckin.incrementAndGet();
-        System.out.println("Proceso de checkin iniciado");
+        //System.out.println("Proceso de checkin iniciado");
         while (hayAsientosParaCheckin()){
             intentarCheckin();
         }
-        System.out.println("No hay reservas confirmadas para hacer checkin, "+ Thread.currentThread().getName()+" finaliza");
+        //System.out.println("No hay reservas confirmadas para hacer checkin, "+ Thread.currentThread().getName()+" finaliza");
         SistemaDeReservas.hilosCheckin.decrementAndGet();
     }
     public void intentarCheckin() {

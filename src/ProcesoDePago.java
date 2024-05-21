@@ -20,11 +20,11 @@ public class ProcesoDePago implements Runnable{
     
     public void run() {
         SistemaDeReservas.hilosPagando.incrementAndGet();
-        System.out.println("Proceso de pago iniciado");
+        //System.out.println("Proceso de pago iniciado");
         while (hayReservasParaPagar()) {
             intentarPagar();
         }
-        System.out.println("No hay reservas pendientes para pagar, "+ Thread.currentThread().getName()+" finaliza");
+        //System.out.println("No hay reservas pendientes para pagar, "+ Thread.currentThread().getName()+" finaliza");
         SistemaDeReservas.hilosPagando.decrementAndGet();
     }
     public void intentarPagar() {
@@ -57,9 +57,9 @@ public class ProcesoDePago implements Runnable{
         boolean sePudoCancelar = false;
 
         if(Math.random() < 0.9){
-            System.out.println("Reserva para pagar");
+            //System.out.println("Reserva para pagar");
             sePudoConfirmar = reserva.getAsiento().confirmar();
-            System.out.println("Reserva pagada");
+            //System.out.println("Reserva pagada");
         }
         else{
             sePudoCancelar = reserva.getAsiento().cancelar();

@@ -60,7 +60,7 @@ public class SistemaDeReservas {
         procesoDePago = new ProcesoDePago(reservasPendientes, reservasConfirmadas, reservasCanceladas);
         procesoDeCheckin = new ProcesoDeCheckin(reservasConfirmadas, reservasCanceladas);
         procesoDeVerificacion = new ProcesoDeVerificacion(reservasConfirmadas, reservasVerificadas);
-        log = new Log(reservasCanceladas, reservasVerificadas);
+        log = new Log(reservasCanceladas, reservasVerificadas, reservasPendientes, reservasConfirmadas);
     }
 
     public ProcesoDeReserva getProcesoDeReserva() {

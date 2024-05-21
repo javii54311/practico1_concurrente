@@ -69,28 +69,29 @@ public class Main {
         if(sistema.diagnosticarFinal()){contEjExitosas.increment();}
     };
     public static void main(String[] args) {
-        //config
-        int nHilosReserva = 3;
-        long sleepReserva = 450; //ms
-        long waitReserva = 1; //ms
 
-        int nHilosPago = 2;
-        long sleepPago = 450; //ms
-        long waitPago = 1; //ms
-
-        int nHilosCheckin = 3;
-        long sleepCheckin = 450; //ms
-        long waitCheckin = 1; //ms
-
-        int nHilosVerificacion = 2;
-        long sleepVerificacion = 450; //ms
-        long waitVerificacion = 1; //ms
-
-        SistemaDeReservas sistema = new SistemaDeReservas(sleepReserva, sleepPago, sleepCheckin, sleepVerificacion, waitReserva, waitPago, waitCheckin, waitVerificacion);
-        
         
         Contador exitos = new Contador(0);
-        for(int i = 0; i < 100; i++){
+        for(int i = 0; i < 300; i++){
+            //config
+            int nHilosReserva = 3;
+            long sleepReserva = 1; //ms
+            long waitReserva = 1; //ms
+
+            int nHilosPago = 2;
+            long sleepPago = 1; //ms
+            long waitPago = 1; //ms
+
+            int nHilosCheckin = 3;
+            long sleepCheckin = 1; //ms
+            long waitCheckin = 1; //ms
+
+            int nHilosVerificacion = 2;
+            long sleepVerificacion = 1; //ms
+            long waitVerificacion = 1; //ms
+
+            SistemaDeReservas sistema = new SistemaDeReservas(sleepReserva, sleepPago, sleepCheckin, sleepVerificacion, waitReserva, waitPago, waitCheckin, waitVerificacion);
+
             ejecutar(sistema, nHilosReserva, nHilosPago, nHilosCheckin, nHilosVerificacion, exitos);
         }
 
