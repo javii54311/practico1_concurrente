@@ -20,11 +20,11 @@ public class ProcesoDePago implements Runnable{
     
     public void run() {
         SistemaDeReservas.hilosPagando.incrementAndGet();
-        System.out.println("Proceso de pago iniciado");
+        //System.out.println("Proceso de pago iniciado");
         while (hayReservasParaPagar()) {
             intentarPagar();
         }
-        System.out.println("No hay reservas pendientes para pagar, "+ Thread.currentThread().getName()+" finaliza");
+        //System.out.println("No hay reservas pendientes para pagar, "+ Thread.currentThread().getName()+" finaliza");
         SistemaDeReservas.hilosPagando.decrementAndGet();
     }
     public void intentarPagar() {

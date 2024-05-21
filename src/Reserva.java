@@ -3,7 +3,7 @@ public class Reserva {
     private boolean check;
     private Asiento asiento;
     public Reserva(Asiento asiento) {
-        this.estado = EstadoReserva.PENDIENTE;
+        this.estado = EstadoReserva.NONATA;
         this.check = false;
         this.asiento = asiento;
     }

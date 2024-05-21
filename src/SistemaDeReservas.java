@@ -69,6 +69,15 @@ public class SistemaDeReservas {
     public ProcesoDePago getProcesoDePago() {
         return procesoDePago;
     }
+    public ProcesoDeCheckin getProcesoDeCheckin() {
+        return procesoDeCheckin;
+    }
+    public ProcesoDeVerificacion getProcesoDeVerificacion() {
+        return procesoDeVerificacion;
+    }
+    public Log getLog() {
+        return log;
+    }
 
     public void mostrarEstadoAsientos() {
         for (int i = 0; i < FILAS; i++) {
@@ -76,7 +85,7 @@ public class SistemaDeReservas {
                 System.out.print("["+asientos[i][j].toString() + "-"+ asientos[i][j].getReserva().toString() + "] ");
                 if((j+1)== (int)COLUMNAS/2){
                     System.out.print("  ");
-                
+
                 }
             }
             System.out.println();
@@ -141,17 +150,6 @@ public class SistemaDeReservas {
         System.out.println("No hay reservas pendientes ni confirmadas? " + flag2);
         if(flag1&&flag2){return true;}
         return false;
-    }
-
-    public ProcesoDeCheckin getProcesoDeCheckin() {
-        return procesoDeCheckin;
-    }
-
-    public ProcesoDeVerificacion getProcesoDeVerificacion() {
-        return procesoDeVerificacion;
-    }
-    public Log getLog() {
-        return log;
     }
 }
 
