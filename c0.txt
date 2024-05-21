@@ -1,0 +1,344 @@
+may. 20, 2024 9:47:42 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 11
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 52
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 103
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 36
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 128
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 21
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  41
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 145
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Duracion del programa: 547 ms
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 1
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 2
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 7
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 27
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 100
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 59
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  34
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 152
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Duracion del programa: 453 ms
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 2
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 4
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:43 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 25
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 69
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 91
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 35
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 119
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 31
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  48
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 138
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  0
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Duracion del programa: 726 ms
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  0
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 0
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  6
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:44 P. M. Log run
+INFORMACIÓN: Duracion del programa: 20 ms
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  0
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 3
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  6
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 1
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Duracion del programa: 14 ms
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 0
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 2
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 1
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 21
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 88
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 76
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  32
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 154
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  0
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Duracion del programa: 417 ms
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 1
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 1
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 4
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:45 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 28
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 82
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 75
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  44
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 142
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  0
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Duracion del programa: 420 ms
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 0
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 2
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 5
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 14
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 103
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 69
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  25
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 161
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  0
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Duracion del programa: 438 ms
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 0
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 8
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 11
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 2
+may. 20, 2024 9:47:46 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 20
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 104
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 62
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  32
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 154
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  0
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Duracion del programa: 450 ms
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 0
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 3
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 5
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -----------------------STARTED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Canceladas: 20
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Verificadas: 88
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Pendientes: 77
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -----------------------ENDED LOG ITERATION-----------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -----------------------FINAL LOG ITERATION-------------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Canceladas:  36
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Verificadas: 150
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Pendientes:  0
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Tamanio final de la lista de Reservas Confirmadas: 0
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: -------------------------------------------------------------------------------------
+may. 20, 2024 9:47:47 P. M. Log run
+INFORMACIÓN: Duracion del programa: 416 ms

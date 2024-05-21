@@ -20,7 +20,7 @@ public class Log implements Runnable {
         this.reservasConfirmadas = reservasConfirmadas;
 
         try {
-            FileHandler fileHandler = new FileHandler("log.txt", true);
+            FileHandler fileHandler = new FileHandler("c400.txt", true);
             logger.addHandler(fileHandler);
             SimpleFormatter formatter = new SimpleFormatter();
             fileHandler.setFormatter(formatter);

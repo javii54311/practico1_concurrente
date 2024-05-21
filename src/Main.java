@@ -72,22 +72,22 @@ public class Main {
 
         
         Contador exitos = new Contador(0);
-        for(int i = 0; i < 300; i++){
+        for(int i = 0; i < 5; i++){
             //config
             int nHilosReserva = 3;
-            long sleepReserva = 1; //ms
+            long sleepReserva = 400; //ms
             long waitReserva = 1; //ms
 
             int nHilosPago = 2;
-            long sleepPago = 1; //ms
+            long sleepPago = 400; //ms
             long waitPago = 1; //ms
 
             int nHilosCheckin = 3;
-            long sleepCheckin = 1; //ms
+            long sleepCheckin = 400; //ms
             long waitCheckin = 1; //ms
 
             int nHilosVerificacion = 2;
-            long sleepVerificacion = 1; //ms
+            long sleepVerificacion = 400; //ms
             long waitVerificacion = 1; //ms
 
             SistemaDeReservas sistema = new SistemaDeReservas(sleepReserva, sleepPago, sleepCheckin, sleepVerificacion, waitReserva, waitPago, waitCheckin, waitVerificacion);
