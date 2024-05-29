@@ -39,6 +39,11 @@ public class ProcesoDeCheckin implements Runnable{
                     }
                     return;
                 }
+                try {
+                    reservasConfirmadas.notifyAll();
+                    reservasConfirmadas.wait(SistemaDeReservas.waitCheckin);
+                } catch (Exception e) {
+                }
             }
             else{
                 try {

@@ -25,6 +25,16 @@ public class ProcesoDeVerificacion implements Runnable{
             if(reservasConfirmadas.size()>0){
                 randomIndex = new Random().nextInt(reservasConfirmadas.size());
                 reserva = reservasConfirmadas.get(randomIndex);
+                if(reserva.isCheck() == false)
+                {   //si aun no está chequeada no se puede verificar
+                    try {
+                        reservasConfirmadas.notifyAll();
+                        reservasConfirmadas.wait(SistemaDeReservas.waitVerificacion);
+                    } catch (Exception e) {
+                    }
+                    return;
+                }
+
                 try {
                     reservasConfirmadas.notifyAll();
                     reservasConfirmadas.wait(SistemaDeReservas.waitVerificacion);
@@ -42,11 +52,6 @@ public class ProcesoDeVerificacion implements Runnable{
                 return;
             }
 
-        }
-
-        if(reserva.isCheck() == false)
-        {   //si aun no está chequeada no se puede verificar
-            return;
         }
 
         boolean seVerifico = reserva.getAsiento().verificar();
